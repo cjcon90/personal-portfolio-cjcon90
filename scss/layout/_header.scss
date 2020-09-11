@@ -1,0 +1,39 @@
+.header {
+   height: 100vh;
+   background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0), rgba($color-grey-dark-3, 0.7));
+   &__logo {
+      display: inline-block;
+      &:hover {
+         & ~ * > * {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+   }
+   &__logo,
+   &__text {
+      padding-top: 3rem;
+      padding-left: 3rem;
+   }
+   &__text {
+      color: $color-primary;
+      & > * {
+         margin-bottom: 3rem;
+         pointer-events: none;
+         opacity: 0;
+         transition: all 0.3s;
+         font-family: $font-text;
+      }
+
+      &--name {
+         text-transform: uppercase;
+         font-size: 4rem;
+         transform: translateY(-200%);
+      }
+
+      &--about {
+         font-size-adjust: 3rem;
+         transform: translateY(-450%);
+      }
+   }
+}

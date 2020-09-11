@@ -1,0 +1,65 @@
+.nav {
+   position: absolute;
+   top: 15rem;
+   right: 0;
+
+   &__list {
+      height: calc(100vh - 30rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & > * {
+         animation-name: navEnter;
+         animation-duration: 1s;
+         animation-fill-mode: backwards;
+         animation-timing-function: ease-out;
+      }
+   }
+   &__item {
+      font-size: 6rem;
+      font-family: $font-heading;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-align: right;
+      list-style: none;
+      text-transform: uppercase;
+      margin-left: auto;
+      padding: 1rem;
+      border-radius: 0.1rem;
+      background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
+   }
+
+   &__link {
+      transition: padding 0.3s;
+      &:link,
+      &:visited {
+         text-decoration: none;
+         color: $color-grey-dark-3;
+         padding-left: 1.5rem;
+      }
+      &:hover,
+      &:active {
+         padding: 0 7rem 0 2.5rem;
+         color: $color-grey-light-2;
+         text-shadow: 0 0 3rem rgba($color-grey-dark-3, 0.5);
+         font-style: italic;
+      }
+   }
+}
+
+#nav {
+   &__about {
+      padding-right: 30vw;
+      animation-delay: 1.5s;
+   }
+   &__projects {
+      padding-right: 12.5vw;
+      animation-delay: 2s;
+   }
+
+   &__contact {
+      padding-right: 20vw;
+      animation-delay: 2.5s;
+   }
+}

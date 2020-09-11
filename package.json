@@ -1,0 +1,17 @@
+{
+   "name": "personal-portfolio-cjcon90",
+   "version": "1.0.0",
+   "description": "Personal Portfolio Page",
+   "main": "index.js",
+   "scripts": {
+      "watch:sass": "node-sass scss/main.scss styles/style.css -w",
+      "devserver": "live-server",
+      "start": "npm-run-all --parallel devserver watch:sass"
+   },
+   "author": "Ciaran Concannon",
+   "license": "ISC",
+   "devDependencies": {
+      "node-sass": "^4.14.1",
+      "npm-run-all": "^4.1.5"
+   }
+}
