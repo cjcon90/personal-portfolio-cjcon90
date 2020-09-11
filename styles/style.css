@@ -64,6 +64,13 @@ i {
   font-size: 10rem;
   color: #24ddbe; }
 
+.heading-2 {
+  font-size: 4.5rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #24ddbe;
+  text-transform: uppercase; }
+
 .header__video {
   position: fixed;
   top: 0;
@@ -118,7 +125,8 @@ i {
     justify-self: center;
     text-align: center;
     font-family: "Montserrat", sans-serif;
-    color: #24ddbe; }
+    color: #24ddbe;
+    margin-bottom: 2rem; }
     .profile__heading--main {
       font-size: 4.5rem;
       margin-bottom: 2rem; }
@@ -149,6 +157,9 @@ i {
       font-size: 1.8rem;
       text-align: justify;
       color: #1f1f1f; }
+
+.contact {
+  background-color: #1f1f1f; }
 
 .header {
   height: 100vh;
@@ -227,6 +238,9 @@ i {
   padding-right: 20vw;
   animation-delay: 2.5s; }
 
+.projects {
+  background-color: #1f1f1f; }
+
 .skills {
   position: relative;
   height: 100%;
@@ -251,6 +265,6 @@ i {
     align-items: center; }
     .skills__block--title {
       font-family: "Oxygen", sans-serif;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 2rem;
-      color: #eeeeee; }
+      color: #f0f0f0; }
