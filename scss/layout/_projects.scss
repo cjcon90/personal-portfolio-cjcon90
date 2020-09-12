@@ -1,3 +1,15 @@
 .projects {
-   background-color: $color-grey-dark-3;
+   height: 100vh;
+   background-image: linear-gradient(to bottom, $color-primary-dark, $color-primary-light, $color-primary-dark);
+
+   &__heading {
+      padding: 8.5rem 0;
+      color: $color-grey-dark-3;
+   }
+
+   &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+   }
 }

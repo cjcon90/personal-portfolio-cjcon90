@@ -4,7 +4,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="Description" content="Personal portfolio page for web developer Ciaran Concannon CJCON90" />
-      <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/scrollreveal"></script>
       <link rel="stylesheet" href="styles/style.css" type="text/css" />
       <title>CJCON90</title>
    </head>
@@ -21,7 +21,7 @@
             <h1 class="header__text--name">Ciaran Concannon</h1>
             <h2 class="header__text--about">Web Developer</h2>
             <h2 class="header__text--about">Dublin, Ireland</h2>
-            <h2 class="header__text--about">Open to opportunities</h2>
+            <h2 class="header__text--about">Open to opportunities!</h2>
          </div>
          <div class="header__video">
             <video class="header__video--content" autoplay muted loop>
@@ -32,8 +32,8 @@
          <nav class="nav">
             <ul class="nav__list">
                <li class="nav__item" id="nav__about"><a href="#about" class="nav__link">About</a></li>
-               <li class="nav__item" id="nav__projects"><a href="#" class="nav__link">Projects</a></li>
-               <li class="nav__item" id="nav__contact"><a href="#" class="nav__link">Contact</a></li>
+               <li class="nav__item" id="nav__projects"><a href="#projects" class="nav__link">Projects</a></li>
+               <li class="nav__item" id="nav__contact"><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
          </nav>
       </header>
@@ -43,7 +43,7 @@
             <div class="profile">
                <div class="profile__heading">
                   <h2 class="profile__heading--main">Hi <span class="waving-hand">👋</span> I'm Ciaran</h2>
-                  <h3 class="profile__heading--sub">(sounds like 'keearan')</h3>
+                  <h3 class="profile__heading--sub">{ sounds-like: 'keearan' }</h3>
                </div>
                <img src="images/me.jpg" alt="Photo of me" class="profile__photo" />
                <div class="profile__aboutme">About Me</div>
@@ -58,56 +58,117 @@
                </div>
             </div>
             <div class="skills">
-               <h2 class="skills__heading heading-2">Things I can do:</h2>
+               <h2 class="skills__heading heading-2">Things I can do</h2>
                <div class="skills__grid">
                   <div class="skills__block">
                      <h3 class="skills__block--title">HTML</h3>
                      <div class="skills__block--icon">
-                        <i class="fab fa-html5" style="color: #f16529"></i>
+                        <i class="fab fa-html5 skill-icon" style="color: #f16529"></i>
                      </div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">CSS</h3>
                      <div class="skills__block--icon">
-                        <i class="fab fa-css3-alt" style="color: #2965f1"></i>
+                        <i class="fab fa-css3-alt skill-icon" style="color: #2965f1"></i>
                      </div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">JavaScript</h3>
                      <div class="skills__block--icon">
-                        <i class="fab fa-js" style="color: #f0db4f"></i>
+                        <i class="fab fa-js skill-icon" style="color: #f0db4f"></i>
                      </div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">Vue</h3>
-                     <div class="skills__block--icon"><i class="fab fa-vuejs" style="color: #41b883"></i>></div>
+                     <div class="skills__block--icon"><i class="fab fa-vuejs skill-icon" style="color: #41b883"></i>></div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">Sass</h3>
-                     <div class="skills__block--icon"><i class="fab fa-sass" style="color: #cd6799"></i>></div>
+                     <div class="skills__block--icon"><i class="fab fa-sass skill-icon" style="color: #cd6799"></i>></div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">Git</h3>
-                     <div class="skills__block--icon"><i class="fab fa-git-alt" style="color: #f1502f"></i>></div>
+                     <div class="skills__block--icon"><i class="fab fa-git-alt skill-icon" style="color: #f1502f"></i>></div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">Bootstrap</h3>
-                     <div class="skills__block--icon"><i class="fab fa-bootstrap" style="color: #4030a5"></i>></div>
+                     <div class="skills__block--icon"><i class="fab fa-bootstrap skill-icon" style="color: #4030a5"></i>></div>
                   </div>
                   <div class="skills__block">
                      <h3 class="skills__block--title">NPM</h3>
-                     <div class="skills__block--icon"><i class="fab fa-npm" style="color: #cc3534"></i>></div>
+                     <div class="skills__block--icon"><i class="fab fa-npm skill-icon" style="color: #cc3534"></i>></div>
                   </div>
                </div>
             </div>
          </div>
-         <div class="projects">
-            <h2 class="projects__heading heading-2">Things I have done:</h2>
+         <div class="projects" id="projects">
+            <h2 class="projects__heading heading-2">Things I have done</h2>
+            <div class="projects__grid">
+               <div class="projects__card">
+                  <a href="images/projects/country-data-viewer.png" class="projects__card--image--link"
+                     ><img src="images/projects/country-data-viewer.png" alt="Thumbnail for country data app" class="projects__card--image" style="object-position: left"
+                  /></a>
+                  <h3 class="projects__card--heading">Country Data Viewer</h3>
+                  <p class="projects__card--description">A fully responsive data table app showing key information about any world country, built using Vue.js and Vuetify</p>
+                  <a href="https://cjcon90.github.io/country-data-viewer/" target="_blank" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Live</button></a>
+                  <a href="https://github.com/cjcon90/country-data-viewer" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Repo</button></a>
+               </div>
+               <div class="projects__card">
+                  <a href="images/projects/quiz-app.png" class="projects__card--image--link"><img src="images/projects/quiz-app.png" alt="Thumbnail for quiz app" class="projects__card--image" /></a>
+                  <h3 class="projects__card--heading">Quiz App</h3>
+                  <p class="projects__card--description">A simple quiz app built with Vue CLI and using the opentdb.com quiz API</p>
+                  <a href="https://cjcon90.github.io/vue-quiz-app/" target="_blank" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Live</button></a>
+                  <a href="https://github.com/cjcon90/vue-quiz-app" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Repo</button></a>
+               </div>
+               <div class="projects__card">
+                  <a href="images/projects/to-do-list.png" class="projects__card--image--link"
+                     ><img src="images/projects/to-do-list.png" alt="Thumbnail for to do list app" class="projects__card--image"
+                  /></a>
+                  <h3 class="projects__card--heading">JS To Do List App</h3>
+                  <p class="projects__card--description">A responsive to-do list app, built with JavaScript and Sass</p>
+                  <a href="https://cjcon90.github.io/vanillaJS_todo_list/" target="_blank" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Live</button></a>
+                  <a href="https://github.com/cjcon90/vanillaJS_todo_list" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Repo</button></a>
+               </div>
+               <div class="projects__card">
+                  <a href="images/projects/markdown-previewer.png" class="projects__card--image--link"
+                     ><img src="images/projects/markdown-previewer.png" alt="Thumbnail for markdown previewer app" class="projects__card--image"
+                  /></a>
+                  <h3 class="projects__card--heading">Markdown Previewer</h3>
+                  <p class="projects__card--description">A live markdown previewer / editor, created using Vue CLI and Vuetify UI framework</p>
+                  <a href="https://elegant-wing-48a845.netlify.app/" target="_blank" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Live</button></a>
+                  <a href="https://github.com/cjcon90/markdown-previewer-vue" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Repo</button></a>
+               </div>
+            </div>
          </div>
-         <div class="contact">
-            <h1 class="contact__heading heading-2">Contact me</h1>
+         <div class="contact" id="contact">
+            <h1 class="contact__heading heading-2">Get in touch</h1>
+            <div class="contact__form">
+               <h3 class="contact__social--heading heading-3">&darr; send me a message</h3>
+            </div>
+
+            <div class="contact__social">
+               <h3 class="contact__social--heading heading-3">or say hello here &darr;</h3>
+               <a class="contact__link" href="#">
+                  <i class="fas fa-envelope social-icon"></i>
+                  <h4 class="contact__link--text">cjcon90@pm.me</h4>
+               </a>
+               <a class="contact__link" href="#">
+                  <i class="fab fa-twitter social-icon"></i>
+                  <h4 class="contact__link--text">twitter.com/cjcon90</h4>
+               </a>
+               <a class="contact__link" href="#">
+                  <i class="fab fa-dev social-icon"></i>
+                  <h4 class="contact__link--text">dev.to/cjcon90</h4>
+               </a>
+
+               <a class="contact__link" href="#">
+                  <i class="fab fa-linkedin-in social-icon"></i>
+                  <h4 class="contact__link--text">linkedin.com/in/ciaran-concannon/</h4>
+               </a>
+            </div>
          </div>
       </main>
+      <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous"></script>
       <script src="scripts/app.js"></script>
    </body>
 </html>

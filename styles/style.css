@@ -45,8 +45,8 @@ body {
 svg {
   padding: 1.5rem;
   width: 50rem;
-  fill: #24ddbe;
-  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #24ddbe 50%);
+  fill: #1cdaba;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #1cdaba 50%);
   background-size: 250%;
   transition: all 0.7s; }
   svg:hover {
@@ -60,16 +60,108 @@ svg {
   transform-origin: 70% 70%;
   display: inline-block; }
 
-i {
-  font-size: 10rem;
-  color: #24ddbe; }
+.skill-icon {
+  font-size: 10rem; }
+
+.social-icon {
+  font-size: 6rem;
+  color: #1cdaba;
+  text-align: center; }
 
 .heading-2 {
-  font-size: 4.5rem;
+  font-size: 5rem;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  color: #24ddbe;
+  color: #1cdaba;
   text-transform: uppercase; }
+
+.heading-3 {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #1cdaba;
+  font-size: 3.5rem;
+  margin-bottom: 5rem; }
+
+.projects__card--link {
+  grid-row: 4 / 5;
+  justify-self: center;
+  align-self: center; }
+
+.projects__card--btn {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 3.5rem;
+  font-family: "Montserrat", sans-serif;
+  border: 0.2rem solid #1cdaba;
+  background-color: transparent;
+  color: #1cdaba;
+  border-radius: 0.2rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  transition: background-image 0.3s, transform 0.3s, box-shadow 0.1s; }
+  .projects__card--btn:hover, .projects__card--btn:active {
+    padding: 1.7rem 3.7rem;
+    background-image: linear-gradient(to bottom right, #8dece0, #1aaa92);
+    border: none;
+    color: #1f1f1f;
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3); }
+  .projects__card--btn:focus {
+    outline: none;
+    border: 0.2rem solid #8dece0;
+    padding: 1.5rem 3.5rem;
+    box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3);
+    font-size: 1.9rem; }
+  .projects__card--btn:active {
+    transform: translateY(0.05rem); }
+
+.projects__card {
+  width: 30rem;
+  height: 47.5rem;
+  background-color: #1f1f1f;
+  border-radius: 0.3rem;
+  transition: all 0.3s;
+  display: grid;
+  grid-template-rows: 50% min-content 1fr min-content;
+  grid-template-columns: repeat(2, 1fr); }
+  .projects__card--image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+    z-index: -1;
+    padding: 1rem;
+    filter: blur(0.05rem) brightness(0.8);
+    transition: all 0.2s; }
+    .projects__card--image--link {
+      grid-column: 1 / -1; }
+      .projects__card--image--link:focus, .projects__card--image--link:hover {
+        outline: none; }
+        .projects__card--image--link:focus > *, .projects__card--image--link:hover > * {
+          filter: brightness(1);
+          padding: 0; }
+  .projects__card--heading {
+    font-family: "Montserrat", sans-serif;
+    color: #1cdaba;
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    margin: 1rem 0;
+    text-align: center; }
+  .projects__card--description {
+    color: #f0f0f0;
+    font-family: "Oxygen", sans-serif;
+    grid-row: 3 / 4;
+    grid-column: 1 / 3;
+    padding: 0 1rem;
+    line-height: 2.7rem;
+    text-align: center; }
+  .projects__card--link:focus {
+    outline: none; }
+
+.form {
+  display: flex;
+  flex-direction: column; }
 
 .header__video {
   position: fixed;
@@ -93,7 +185,7 @@ i {
   place-items: center; }
 
 .profile {
-  border: solid 0.3rem #24ddbe;
+  border: solid 0.3rem #1cdaba;
   background-color: #1f1f1f;
   width: 80%;
   border-radius: 0.3rem;
@@ -109,14 +201,14 @@ i {
     margin-left: 5rem;
     grid-column: 1 / 3;
     grid-row: 1 / 2;
-    transition: all 0.3s;
-    background-color: #24ddbe;
+    transition: all 0.5s;
+    background-color: #1cdaba;
     filter: opacity(0.8);
-    border: solid 0.15rem #24ddbe;
-    box-shadow: 0 0 2rem rgba(157, 255, 242, 0.2); }
+    border: solid 0.15rem #1cdaba;
+    box-shadow: 0 0 2rem rgba(141, 236, 224, 0.2); }
     .profile__photo:hover {
-      border: solid 0.15rem #24ddbe;
-      box-shadow: 0 0 2rem rgba(157, 255, 242, 0.2);
+      border: solid 0.15rem #1cdaba;
+      box-shadow: 0 0 2rem rgba(141, 236, 224, 0.2);
       transform: scale(1.3);
       filter: opacity(1); }
   .profile__heading {
@@ -125,16 +217,16 @@ i {
     justify-self: center;
     text-align: center;
     font-family: "Montserrat", sans-serif;
-    color: #24ddbe;
     margin-bottom: 2rem; }
     .profile__heading--main {
+      color: #1cdaba;
       font-size: 4.5rem;
       margin-bottom: 2rem; }
     .profile__heading--sub {
-      font-size: 3rem;
-      font-style: italic; }
+      color: #1aaa92;
+      font-size: 3rem; }
   .profile__aboutme {
-    background-color: #9dfff2;
+    background-color: #8dece0;
     display: inline;
     grid-column: 3 / 6;
     grid-row: 2 / 3;
@@ -149,7 +241,7 @@ i {
     grid-row: 3 / -1;
     display: grid;
     gap: 1.5rem;
-    background-color: #24ddbe;
+    background-image: linear-gradient(to bottom, #1cdaba, #1aaa92);
     padding: 4rem; }
     .profile__bio--para {
       font-family: "Oxygen", sans-serif;
@@ -159,7 +251,49 @@ i {
       color: #1f1f1f; }
 
 .contact {
-  background-color: #1f1f1f; }
+  height: 100vh;
+  background-color: #1f1f1f;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content 1fr;
+  place-items: center; }
+  .contact__heading {
+    grid-column: 1 / 3;
+    padding-top: 7.5rem; }
+  .contact__form, .contact__social {
+    border: 0.1px solid #8dece0;
+    width: 60rem;
+    height: 75%;
+    padding: 2.5rem; }
+    .contact__form--heading, .contact__social--heading {
+      padding-bottom: 2.5rem;
+      border-bottom: 0.2rem solid #8dece0; }
+  .contact__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; }
+  .contact__link {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    align-items: center; }
+    .contact__link:link, .contact__link:visited {
+      text-decoration: none; }
+    .contact__link:focus {
+      font-style: italic;
+      outline: none; }
+      .contact__link:focus > i {
+        animation-name: wave;
+        animation-duration: 2.5s;
+        animation-iteration-count: infinite;
+        transform-origin: 70% 70%;
+        color: #8dece0; }
+    .contact__link:hover > i,
+    .contact__link:hover h4 {
+      color: #8dece0; }
+    .contact__link--text {
+      color: #1cdaba;
+      font-size: 2.5rem;
+      text-align: left; }
 
 .header {
   height: 100vh;
@@ -173,7 +307,7 @@ i {
     padding-top: 3rem;
     padding-left: 3rem; }
   .header__text {
-    color: #24ddbe; }
+    color: #1cdaba; }
     .header__text > * {
       margin-bottom: 3rem;
       pointer-events: none;
@@ -213,7 +347,7 @@ i {
     margin-left: auto;
     padding: 1rem;
     border-radius: 0.1rem;
-    background-image: linear-gradient(to right, #24ddbe, #1baa8b); }
+    background-image: linear-gradient(to right, #1cdaba, #1aaa92); }
   .nav__link {
     transition: padding 0.3s; }
     .nav__link:link, .nav__link:visited {
@@ -222,9 +356,11 @@ i {
       padding-left: 1.5rem; }
     .nav__link:hover, .nav__link:active {
       padding: 0 7rem 0 2.5rem;
-      color: #eee;
+      color: #f0f0f0;
       text-shadow: 0 0 3rem rgba(31, 31, 31, 0.5);
       font-style: italic; }
+    .nav__link:focus {
+      outline: 0.3rem dashed #1aaa92; }
 
 #nav__about {
   padding-right: 30vw;
@@ -239,7 +375,15 @@ i {
   animation-delay: 2.5s; }
 
 .projects {
-  background-color: #1f1f1f; }
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #1aaa92, #8dece0, #1aaa92); }
+  .projects__heading {
+    padding: 8.5rem 0;
+    color: #1f1f1f; }
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center; }
 
 .skills {
   position: relative;
@@ -252,7 +396,7 @@ i {
     margin-bottom: 6rem;
     font-size: 4.5rem;
     font-family: "Montserrat", sans-serif;
-    color: #24ddbe;
+    color: #1cdaba;
     text-transform: uppercase; }
   .skills__grid {
     display: grid;
