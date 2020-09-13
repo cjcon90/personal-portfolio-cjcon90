@@ -29,6 +29,18 @@ const mailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(
 
 submit.addEventListener("click", (e) => {
    name.value.trim().length > 0 ? (nameError.style.opacity = "0") : ((nameError.style.opacity = "1"), e.preventDefault());
-   mailReg.test(email.value) ? (emailError.style.opacity = "0") : ((emailError.style.opacity = "1"), e.preventDefault());
+
+   if (email.value.trim() === "") {
+      emailError.textContent = "What's your email?";
+      emailError.style.opacity = "1";
+      e.preventDefault();
+   } else if (!mailReg.test(email.value)) {
+      emailError.textContent = "Hmm... this doesn't look right.";
+      emailError.style.opacity = "1";
+      e.preventDefault();
+   } else {
+      emailError.style.opacity = "0";
+   }
+
    message.value.trim().length > 0 ? (messageError.style.opacity = "0") : ((messageError.style.opacity = "1"), e.preventDefault());
 });

@@ -154,6 +154,7 @@ svg {
   .projects__card--description {
     color: #f0f0f0;
     font-family: "Oxygen", sans-serif;
+    font-weight: 500;
     grid-row: 3 / 4;
     grid-column: 1 / 3;
     padding: 0 1rem;
@@ -286,7 +287,8 @@ svg {
     display: grid;
     gap: 1.5rem;
     background-image: linear-gradient(to bottom, #1cdaba, #1aaa92);
-    padding: 4rem; }
+    padding: 4rem;
+    font-weight: 500; }
     .profile__bio--para {
       font-family: "Oxygen", sans-serif;
       line-height: 2;
