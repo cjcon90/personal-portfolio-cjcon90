@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,500&family=Oxygen:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Oxygen:wght@300;400;700&display=swap");
 @keyframes navEnter {
   0% {
     opacity: 0;
@@ -80,14 +80,10 @@ svg {
   text-align: center;
   color: #1cdaba;
   font-size: 3.5rem;
-  margin-bottom: 5rem; }
+  margin-bottom: 4rem; }
 
-.projects__card--link {
-  grid-row: 4 / 5;
-  justify-self: center;
-  align-self: center; }
-
-.projects__card--btn {
+.projects__card--btn,
+#submit {
   margin-bottom: 1.5rem;
   padding: 1.5rem 3.5rem;
   font-family: "Montserrat", sans-serif;
@@ -98,21 +94,28 @@ svg {
   font-weight: 700;
   font-size: 1.8rem;
   transition: background-image 0.3s, transform 0.3s, box-shadow 0.1s; }
-  .projects__card--btn:hover, .projects__card--btn:active {
+  .projects__card--btn:hover, .projects__card--btn:active,
+  #submit:hover,
+  #submit:active {
     padding: 1.7rem 3.7rem;
     background-image: linear-gradient(to bottom right, #8dece0, #1aaa92);
     border: none;
     color: #1f1f1f;
     transform: translateY(-0.2rem);
     box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3); }
-  .projects__card--btn:focus {
+  .projects__card--btn:focus,
+  #submit:focus {
     outline: none;
     border: 0.2rem solid #8dece0;
     padding: 1.5rem 3.5rem;
-    box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3);
-    font-size: 1.9rem; }
-  .projects__card--btn:active {
+    box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3); }
+  .projects__card--btn:active,
+  #submit:active {
     transform: translateY(0.05rem); }
+
+#submit {
+  margin: 2rem auto;
+  width: 60%; }
 
 .projects__card {
   width: 35rem;
@@ -156,12 +159,51 @@ svg {
     padding: 0 1rem;
     line-height: 3.25rem;
     text-align: center; }
-  .projects__card--link:focus {
-    outline: none; }
+  .projects__card--link {
+    grid-row: 4 / 5;
+    justify-self: center;
+    align-self: center; }
+    .projects__card--link:focus {
+      outline: none; }
 
 .form {
   display: flex;
   flex-direction: column; }
+  .form__section {
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    gap: 0.5rem; }
+    .form__section > * {
+      font-family: "Oxygen", sans-serif;
+      letter-spacing: 0.15rem; }
+    .form__section--label {
+      font-size: 1.7rem;
+      color: #1cdaba;
+      grid-row: 1 / 2;
+      transition: all 0.3s; }
+    .form__section--input {
+      font-family: "Oxygen", sans-serif;
+      font-size: 1.8rem;
+      color: #f0f0f0;
+      outline: none;
+      background-color: rgba(141, 236, 224, 0.1);
+      border: none;
+      border-bottom: solid 0.2rem #1aaa92;
+      padding: 1rem;
+      resize: none;
+      transition: all 0.1s; }
+      .form__section--input:focus {
+        border-bottom: solid 0.2rem #8dece0; }
+      .form__section--input::placeholder {
+        color: #bebebe; }
+      .form__section--input:placeholder-shown ~ label {
+        opacity: 0;
+        transform: translate(2%, 200%); }
+    .form__section--error {
+      font-family: "Oxygen", sans-serif;
+      font-size: 1.7rem;
+      color: #ff4400;
+      text-align: right; }
 
 .header__video {
   position: fixed;
@@ -266,16 +308,17 @@ svg {
     height: 75%;
     padding: 2.5rem; }
     .contact__form--heading, .contact__social--heading {
-      padding-bottom: 2.5rem;
+      padding-bottom: 2rem;
       border-bottom: 0.2rem solid #8dece0; }
   .contact__social {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; }
+    display: grid;
+    grid-template-rows: min-content repeat(4, 1fr); }
   .contact__link {
     display: grid;
     grid-template-columns: 20% 1fr;
-    align-items: center; }
+    align-items: center;
+    font-family: "Oxygen", sans-serif;
+    letter-spacing: 0.3rem; }
     .contact__link:link, .contact__link:visited {
       text-decoration: none; }
     .contact__link:focus {
@@ -291,8 +334,10 @@ svg {
     .contact__link:hover h4 {
       color: #8dece0; }
     .contact__link--text {
+      font-family: "Oxygen", sans-serif;
+      letter-spacing: 0.3rem;
+      font-size: 2rem;
       color: #1cdaba;
-      font-size: 2.5rem;
       text-align: left; }
 
 .header {

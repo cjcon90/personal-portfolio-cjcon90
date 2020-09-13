@@ -19,21 +19,22 @@
       padding: 2.5rem;
 
       &--heading {
-         padding-bottom: 2.5rem;
+         padding-bottom: 2rem;
          border-bottom: 0.2rem solid $color-primary-light;
       }
    }
 
    &__social {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
+      display: grid;
+      grid-template-rows: min-content repeat(4, 1fr);
    }
 
    &__link {
       display: grid;
       grid-template-columns: 20% 1fr;
       align-items: center;
+      font-family: $font-text;
+      letter-spacing: 0.3rem;
 
       &:link,
       &:visited {
@@ -59,8 +60,11 @@
       }
 
       &--text {
+         font-family: $font-text;
+         letter-spacing: 0.3rem;
+         font-size: 2rem;
          color: $color-primary;
-         font-size: 2.5rem;
+
          text-align: left;
       }
    }

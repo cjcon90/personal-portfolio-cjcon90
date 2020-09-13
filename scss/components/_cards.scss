@@ -56,6 +56,9 @@
       }
 
       &--link {
+         grid-row: 4 / 5;
+         justify-self: center;
+         align-self: center;
          &:focus {
             outline: none;
          }
