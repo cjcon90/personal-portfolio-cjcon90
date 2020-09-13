@@ -48,8 +48,9 @@
          font-family: $font-text;
          font-size: 1.7rem;
          color: $color-warning;
-         color: transparent;
+         opacity: 0;
          text-align: right;
+         transition: all 0.2s;
       }
    }
 }
