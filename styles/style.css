@@ -203,6 +203,7 @@ svg {
       font-family: "Oxygen", sans-serif;
       font-size: 1.7rem;
       color: #ff4400;
+      color: transparent;
       text-align: right; }
 
 .header__video {

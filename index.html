@@ -144,7 +144,7 @@
             <h1 class="contact__heading heading-2">Get in touch</h1>
             <div class="contact__form">
                <h3 class="contact__social--heading heading-3">&darr; send me a message</h3>
-               <div class="form" name="contact" method="POST" data-netlify="true">
+               <form class="form" name="contact" action="https://formspree.io/xrgozgdo" method="POST">
                   <div class="form__section">
                      <input type="text" id="name" name="name" placeholder="Name" required class="form__section--input" />
                      <label for="name" class="form__section--label">Name</label>
@@ -161,9 +161,9 @@
                      <p class="form__section--error">Whatchu tryina say?</p>
                   </div>
                   <div class="form__section">
-                     <input type="submit" id="submit" value="Submit" />
+                     <button type="submit" id="submit">Submit</button>
                   </div>
-               </div>
+               </form>
             </div>
 
             <div class="contact__social">
