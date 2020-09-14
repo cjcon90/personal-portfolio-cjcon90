@@ -2,11 +2,17 @@
 @keyframes navEnter {
   0% {
     opacity: 0;
-    transform: translateX(100%); }
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -moz-transform: translateX(100%); }
   30% {
     opacity: 1; }
   100% {
-    transform: translate(0); } }
+    transform: translate(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+    -moz-transform: translateX(0); } }
 
 @keyframes wave {
   0% {
@@ -35,6 +41,9 @@
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 93.75em) {
+    html {
+      font-size: 52%; } }
 
 body {
   box-sizing: border-box; }
@@ -94,6 +103,10 @@ svg {
   font-weight: 700;
   font-size: 1.8rem;
   transition: background-image 0.3s, transform 0.3s, box-shadow 0.1s; }
+  @media only screen and (max-width: 75em) {
+    .projects__card--btn,
+    #submit {
+      padding: 1.5rem 5rem; } }
   .projects__card--btn:hover, .projects__card--btn:active,
   #submit:hover,
   #submit:active {
@@ -103,11 +116,15 @@ svg {
     color: #1f1f1f;
     transform: translateY(-0.2rem);
     box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3); }
+    @media only screen and (max-width: 75em) {
+      .projects__card--btn:hover, .projects__card--btn:active,
+      #submit:hover,
+      #submit:active {
+        padding: 1.7rem 5.2rem; } }
   .projects__card--btn:focus,
   #submit:focus {
     outline: none;
     border: 0.2rem solid #8dece0;
-    padding: 1.5rem 3.5rem;
     box-shadow: 0 0 1rem rgba(141, 236, 224, 0.3); }
   .projects__card--btn:active,
   #submit:active {
@@ -126,6 +143,10 @@ svg {
   display: grid;
   grid-template-rows: 50% min-content 1fr min-content;
   grid-template-columns: repeat(2, 1fr); }
+  @media only screen and (max-width: 75em) {
+    .projects__card {
+      width: 50rem;
+      height: 40rem; } }
   .projects__card--image {
     width: 100%;
     height: 100%;
@@ -256,6 +277,10 @@ svg {
       box-shadow: 0 0 2rem rgba(141, 236, 224, 0.2);
       transform: scale(1.3);
       filter: opacity(1); }
+    @media only screen and (max-width: 75em) {
+      .profile__photo {
+        margin-top: 2.5rem;
+        margin-left: 2.5rem; } }
   .profile__heading {
     grid-column: 3 / 8;
     align-self: end;
@@ -351,6 +376,7 @@ svg {
       text-align: left; }
 
 .header {
+  position: relative;
   min-height: 100vh;
   background-image: linear-gradient(to bottom, rgba(31, 31, 31, 0), rgba(31, 31, 31, 0.7)); }
   .header__logo {
@@ -442,6 +468,12 @@ svg {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center; }
+    @media only screen and (max-width: 75em) {
+      .projects__grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 5rem;
+        gap: 5rem; } }
 
 .skills {
   position: relative;

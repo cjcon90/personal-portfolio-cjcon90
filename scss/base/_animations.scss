@@ -2,6 +2,9 @@
    0% {
       opacity: 0;
       transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      -moz-transform: translateX(100%);
    }
 
    30% {
@@ -10,6 +13,9 @@
 
    100% {
       transform: translate(0);
+      -webkit-transform: translateX(0);
+      -o-transform: translateX(0);
+      -moz-transform: translateX(0);
    }
 }
 

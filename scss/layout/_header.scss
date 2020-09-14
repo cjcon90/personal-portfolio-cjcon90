@@ -1,4 +1,5 @@
 .header {
+   position: relative;
    min-height: 100vh;
    background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0), rgba($color-grey-dark-3, 0.7));
    &__logo {

@@ -11,6 +11,11 @@
       grid-template-rows: 50% min-content 1fr min-content;
       grid-template-columns: repeat(2, 1fr);
 
+      @include respond(tab-land) {
+         width: 50rem;
+         height: 40rem;
+      }
+
       &--image {
          width: 100%;
          height: 100%;

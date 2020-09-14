@@ -11,6 +11,10 @@
    font-size: 1.8rem;
    transition: background-image 0.3s, transform 0.3s, box-shadow 0.1s;
 
+   @include respond(tab-land) {
+      padding: 1.5rem 5rem;
+   }
+
    &:hover,
    &:active {
       padding: 1.7rem 3.7rem;
@@ -19,12 +23,15 @@
       color: $color-grey-dark-3;
       transform: translateY(-0.2rem);
       box-shadow: 0 0 1rem rgba($color-primary-light, 0.3rem);
+
+      @include respond(tab-land) {
+         padding: 1.7rem 5.2rem;
+      }
    }
 
    &:focus {
       outline: none;
       border: 0.2rem solid $color-primary-light;
-      padding: 1.5rem 3.5rem;
       box-shadow: 0 0 1rem rgba($color-primary-light, 0.3rem);
    }
    &:active {
