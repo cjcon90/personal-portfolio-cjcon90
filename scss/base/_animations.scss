@@ -45,3 +45,13 @@
       transform: rotate(0deg);
    }
 }
+
+@keyframes bgColorStart {
+   0% {
+      background-color: $color-grey-dark-3;
+   }
+
+   100% {
+      background-color: none;
+   }
+}

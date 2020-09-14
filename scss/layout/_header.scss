@@ -1,7 +1,12 @@
 .header {
    position: relative;
    min-height: 100vh;
-   background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0), rgba($color-grey-dark-3, 0.7));
+   background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0), rgba($color-grey-dark-3, 0.6));
+   animation-name: bgColorStart;
+   animation-duration: 3s;
+   animation-delay: 2s;
+   animation-timing-function: linear;
+   animation-fill-mode: backwards;
    &__logo {
       display: inline-block;
       &:hover {

@@ -1,10 +1,15 @@
 .about {
    min-height: 100vh;
-   background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0.7), rgba($color-grey-dark-3, 1) 50%, rgba($color-grey-dark-3, 1));
+   background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0.6), rgba($color-grey-dark-3, 1) 50%, rgba($color-grey-dark-3, 1));
    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
    display: grid;
    grid-template-columns: 1fr 1fr;
    place-items: center;
+
+   @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+   }
 }
 
 .profile {
@@ -30,6 +35,9 @@
       filter: opacity(0.8);
       border: solid 0.15rem $color-primary;
       box-shadow: 0 0 2rem rgba($color-primary-light, 0.2);
+      align-self: center;
+      justify-self: center;
+
       &:hover {
          border: solid 0.15rem $color-primary;
          box-shadow: 0 0 2rem rgba($color-primary-light, 0.2);
