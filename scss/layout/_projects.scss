@@ -1,15 +1,18 @@
 .projects {
-   height: 100vh;
+   min-height: 100vh;
    background-image: linear-gradient(to bottom, $color-primary-dark, $color-primary-light, $color-primary-dark);
+   display: grid;
+   grid-template-rows: min-content 1fr;
+   align-items: center;
 
    &__heading {
-      padding: 8.5rem 0;
+      padding-top: 8rem;
       color: $color-grey-dark-3;
    }
 
    &__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      justify-items: center;
+      place-items: center;
    }
 }

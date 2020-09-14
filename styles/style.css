@@ -168,8 +168,8 @@ svg {
       outline: none; }
 
 .form {
-  display: flex;
-  flex-direction: column; }
+  display: grid;
+  grid-template-rows: repeat(3, min-content) 1fr; }
   .form__section {
     display: grid;
     grid-template-rows: repeat(3, min-content);
@@ -297,11 +297,12 @@ svg {
       color: #1f1f1f; }
 
 .contact {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #1f1f1f;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  row-gap: 5rem;
   place-items: center; }
   .contact__heading {
     grid-column: 1 / 3;
@@ -309,11 +310,16 @@ svg {
   .contact__form, .contact__social {
     border: 0.1px solid #8dece0;
     width: 60rem;
-    height: 75%;
+    height: 100%;
+    max-height: 62.5rem;
     padding: 2.5rem; }
     .contact__form--heading, .contact__social--heading {
       padding-bottom: 2rem;
       border-bottom: 0.2rem solid #8dece0; }
+  .contact__form {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    align-items: center; }
   .contact__social {
     display: grid;
     grid-template-rows: min-content repeat(4, 1fr); }
@@ -345,7 +351,7 @@ svg {
       text-align: left; }
 
 .header {
-  height: 100vh;
+  min-height: 100vh;
   background-image: linear-gradient(to bottom, rgba(31, 31, 31, 0), rgba(31, 31, 31, 0.7)); }
   .header__logo {
     display: inline-block; }
@@ -424,15 +430,18 @@ svg {
   animation-delay: 2.5s; }
 
 .projects {
-  height: 100vh;
-  background-image: linear-gradient(to bottom, #1aaa92, #8dece0, #1aaa92); }
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, #1aaa92, #8dece0, #1aaa92);
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  align-items: center; }
   .projects__heading {
-    padding: 8.5rem 0;
+    padding-top: 8rem;
     color: #1f1f1f; }
   .projects__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    justify-items: center; }
+    place-items: center; }
 
 .skills {
   position: relative;

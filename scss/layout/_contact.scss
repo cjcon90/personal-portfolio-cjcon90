@@ -1,9 +1,10 @@
 .contact {
-   height: 100vh;
+   min-height: 100vh;
    background-color: $color-grey-dark-3;
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   grid-template-rows: min-content 1fr;
+   grid-template-rows: min-content 1fr min-content;
+   row-gap: 5rem;
    place-items: center;
 
    &__heading {
@@ -15,13 +16,20 @@
    &__social {
       border: 0.1px solid $color-primary-light;
       width: 60rem;
-      height: 75%;
+      height: 100%;
+      max-height: 62.5rem;
       padding: 2.5rem;
 
       &--heading {
          padding-bottom: 2rem;
          border-bottom: 0.2rem solid $color-primary-light;
       }
+   }
+
+   &__form {
+      display: grid;
+      grid-template-rows: min-content 1fr;
+      align-items: center;
    }
 
    &__social {
