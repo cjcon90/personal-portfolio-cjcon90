@@ -549,7 +549,8 @@ svg {
     text-transform: uppercase; }
     @media only screen and (max-width: 37.5em) {
       .nav__item {
-        font-size: 2rem; } }
+        font-size: 2rem;
+        font-weight: 700; } }
   .nav__link {
     transition: padding 0.3s; }
     .nav__link:link, .nav__link:visited {
