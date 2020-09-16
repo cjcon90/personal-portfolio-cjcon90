@@ -22,12 +22,10 @@
 @keyframes navMobile {
    0% {
       height: 0;
-      color: transparent;
-   }
-   80% {
-      color: transparent;
+      opacity: 0;
    }
    100% {
+      opacity: 1;
       height: 10rem;
       color: $color-grey-dark-3;
    }

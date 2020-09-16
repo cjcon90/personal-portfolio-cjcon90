@@ -13,8 +13,10 @@
    &__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      margin: 0 5rem;
+      gap: 5vw;
       place-items: center;
-      @include respond(tab-land) {
+      @include respond(small-desk) {
          grid-template-columns: 1fr 1fr;
          grid-template-rows: 1fr 1fr;
          margin: 5rem 0;

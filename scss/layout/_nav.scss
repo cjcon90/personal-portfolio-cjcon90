@@ -29,6 +29,9 @@
       letter-spacing: 4px;
       list-style: none;
       text-transform: uppercase;
+      @include respond(phone) {
+         font-size: 2rem;
+      }
    }
 
    &__link {

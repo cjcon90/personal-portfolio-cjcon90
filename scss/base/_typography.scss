@@ -19,6 +19,9 @@ svg {
       animation-fill-mode: backwards;
       animation-duration: 1s;
    }
+   @include respond(phone) {
+      width: 80vw;
+   }
    &:hover {
       fill: $color-grey-dark-3;
       background-position: 100%;

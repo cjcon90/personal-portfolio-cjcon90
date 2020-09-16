@@ -4,9 +4,6 @@
    display: grid;
    grid-template-rows: min-content min-content;
    align-content: center;
-   @include respond(phone) {
-      margin-top: -5rem;
-   }
 
    &__heading {
       text-align: center;
@@ -15,12 +12,16 @@
       font-family: $font-heading;
       color: $color-primary;
       text-transform: uppercase;
+      @include respond(phone) {
+         margin-top: 5rem;
+      }
    }
 
    &__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 5rem;
+      margin: auto;
       @include respond(tab-port) {
          width: 80vw;
       }

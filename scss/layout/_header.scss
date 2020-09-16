@@ -61,12 +61,18 @@
          @include respond(land) {
             transform: translateY(-200%);
          }
+         @include respond(phone) {
+            font-size: 3rem;
+         }
       }
 
       &--about {
          font-size-adjust: 3rem;
          @include respond(land) {
             transform: translateY(-300%);
+         }
+         @include respond(phone) {
+            font-size: 2.5rem;
          }
       }
    }

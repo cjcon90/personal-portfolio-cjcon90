@@ -1,6 +1,7 @@
 .projects {
    &__card {
-      width: 35rem;
+      width: 100%;
+      max-width: 50rem;
       height: 50rem;
       background-color: $color-grey-dark-3;
       border-radius: 0.3rem;
@@ -22,8 +23,8 @@
       }
 
       @include respond(phone) {
-         width: 55rem;
-         max-width: 95%;
+         width: 97.5%;
+         max-width: 55rem;
       }
 
       &--image {
