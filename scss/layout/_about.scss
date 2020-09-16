@@ -74,6 +74,9 @@
          color: $color-primary-dark;
          font-size: 3rem;
       }
+      @include respond(phone) {
+         margin-top: 2rem;
+      }
    }
    &__aboutme {
       background-color: $color-primary-light;

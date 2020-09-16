@@ -362,6 +362,9 @@ svg {
     .profile__heading--sub {
       color: #1aaa92;
       font-size: 3rem; }
+    @media only screen and (max-width: 37.5em) {
+      .profile__heading {
+        margin-top: 2rem; } }
   .profile__aboutme {
     background-color: #8dece0;
     display: inline;
