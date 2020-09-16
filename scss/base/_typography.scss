@@ -11,6 +11,14 @@ svg {
    background-size: 250%;
    transition: all 0.7s;
 
+   @include respond(tab-port) {
+      fill: $color-grey-dark-3;
+      background-position: 100%;
+      animation-name: logo-bg;
+      animation-delay: 3s;
+      animation-fill-mode: backwards;
+      animation-duration: 1s;
+   }
    &:hover {
       fill: $color-grey-dark-3;
       background-position: 100%;

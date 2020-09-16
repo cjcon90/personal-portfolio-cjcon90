@@ -33,6 +33,9 @@
          width: 100%;
          max-width: 70rem;
       }
+      @include respond(phone) {
+         border: none;
+      }
 
       &--heading {
          padding-bottom: 2rem;

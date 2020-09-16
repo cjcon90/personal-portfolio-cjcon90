@@ -10,6 +10,12 @@
    </head>
    <body>
       <header class="header">
+         <div class="header__video">
+            <video class="header__video--content" autoplay muted loop>
+               <source src="images/hero-vid.mp4" type="video/mp4" />
+               Your browser is not supported!
+            </video>
+         </div>
          <div class="header__logo">
             <svg viewBox="0 0 599 89" xmlns="http://www.w3.org/2000/svg">
                <path
@@ -23,21 +29,14 @@
             <h2 class="header__text--about">Dublin, Ireland</h2>
             <h2 class="header__text--about">Open to opportunities!</h2>
          </div>
-         <div class="header__video">
-            <video class="header__video--content" autoplay muted loop>
-               <source src="images/hero-vid.mp4" type="video/mp4" />
-               Your browser is not supported!
-            </video>
-         </div>
-         <nav class="nav">
-            <ul class="nav__list">
-               <li class="nav__item" id="nav__about"><a href="#about" class="nav__link">About</a></li>
-               <li class="nav__item" id="nav__projects"><a href="#projects" class="nav__link">Projects</a></li>
-               <li class="nav__item" id="nav__contact"><a href="#contact" class="nav__link">Contact</a></li>
-            </ul>
-         </nav>
       </header>
-
+      <nav class="nav">
+         <ul class="nav__list">
+            <li class="nav__item" id="nav__about"><a href="#about" class="nav__link">About</a></li>
+            <li class="nav__item" id="nav__projects"><a href="#projects" class="nav__link">Projects</a></li>
+            <li class="nav__item" id="nav__contact"><a href="#contact" class="nav__link">Contact</a></li>
+         </ul>
+      </nav>
       <main>
          <div class="about" id="about">
             <div class="profile">
