@@ -579,7 +579,7 @@ svg {
         justify-content: space-between; }
         .nav__list > * {
           animation-name: navEnter;
-          animation-duration: 1s;
+          animation-duration: 1.5s;
           animation-fill-mode: backwards;
           animation-timing-function: ease-out; }
       .nav__item {
