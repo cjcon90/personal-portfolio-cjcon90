@@ -530,7 +530,8 @@ svg {
     .nav {
       height: 10rem;
       width: 100%;
-      background-image: linear-gradient(to bottom, #1aaa92, #8dece0);
+      background-color: #1cdaba;
+      border-bottom: #8dece0 1px solid;
       animation-name: navMobile;
       animation-delay: 3s;
       animation-fill-mode: backwards;
