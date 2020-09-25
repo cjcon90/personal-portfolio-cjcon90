@@ -173,7 +173,7 @@ svg {
     transform: translateY(0.05rem); }
 
 #submit {
-  margin: 2rem auto;
+  margin: 0 auto 2rem auto;
   width: 60%; }
 
 .projects__card {
