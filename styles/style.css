@@ -60,7 +60,7 @@
   0% {
     background-color: #1f1f1f; }
   100% {
-    background-color: none; } }
+    background-color: transparent; } }
 
 *,
 *::after,

@@ -1,79 +1,79 @@
 .header {
-   position: relative;
-   height: 100vh;
-   background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0), rgba($color-grey-dark-3, 0.6));
-   animation-name: bgColorStart;
-   animation-duration: 3s;
-   animation-delay: 2s;
-   animation-timing-function: linear;
-   animation-fill-mode: backwards;
-   &__logo,
-   &__text {
-      padding-top: 3rem;
-      padding-left: 3rem;
-      @include respond(tab-port) {
-         text-align: center;
-         padding: 3rem 0 0 0;
-      }
-   }
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba($color-grey-dark-3, 0), rgba($color-grey-dark-3, 0.6));
+  animation-name: bgColorStart;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  &__logo,
+  &__text {
+    padding-top: 3rem;
+    padding-left: 3rem;
+    @include respond(tab-port) {
+      text-align: center;
+      padding: 3rem 0 0 0;
+    }
+  }
 
-   &__logo {
-      display: inline-block;
+  &__logo {
+    display: inline-block;
+    @include respond(tab-port) {
+      display: block;
+      padding: 50% 0 0 0;
+    }
+
+    @include respond(land) {
+      &:hover {
+        & ~ * > * {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__text {
+    color: $color-primary;
+    & > * {
+      margin-bottom: 3rem;
+      pointer-events: none;
+      transition: all 0.3s;
+      font-family: $font-text;
+
       @include respond(tab-port) {
-         display: block;
-         padding: 50% 0 0 0;
+        animation-name: headerText;
+        animation-fill-mode: backwards;
+        animation-delay: 4s;
+        animation-duration: 1.2s;
       }
 
       @include respond(land) {
-         &:hover {
-            & ~ * > * {
-               opacity: 1;
-               transform: translateY(0);
-            }
-         }
+        opacity: 0;
       }
-   }
+    }
 
-   &__text {
-      color: $color-primary;
-      & > * {
-         margin-bottom: 3rem;
-         pointer-events: none;
-         transition: all 0.3s;
-         font-family: $font-text;
+    &--name {
+      text-transform: uppercase;
+      font-size: 4rem;
 
-         @include respond(tab-port) {
-            animation-name: headerText;
-            animation-fill-mode: backwards;
-            animation-delay: 4s;
-            animation-duration: 1.2s;
-         }
-
-         @include respond(land) {
-            opacity: 0;
-         }
+      @include respond(land) {
+        transform: translateY(-200%);
       }
-
-      &--name {
-         text-transform: uppercase;
-         font-size: 4rem;
-
-         @include respond(land) {
-            transform: translateY(-200%);
-         }
-         @include respond(phone) {
-            font-size: 3rem;
-         }
+      @include respond(phone) {
+        font-size: 3rem;
       }
+    }
 
-      &--about {
-         font-size-adjust: 3rem;
-         @include respond(land) {
-            transform: translateY(-300%);
-         }
-         @include respond(phone) {
-            font-size: 2.5rem;
-         }
+    &--about {
+      font-size-adjust: 3rem;
+      @include respond(land) {
+        transform: translateY(-300%);
       }
-   }
+      @include respond(phone) {
+        font-size: 2.5rem;
+      }
+    }
+  }
 }

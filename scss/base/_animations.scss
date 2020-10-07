@@ -1,93 +1,93 @@
 @keyframes navEnter {
-   0% {
-      opacity: 0;
-      transform: translateX(100%);
-      -webkit-transform: translateX(100%);
-      -o-transform: translateX(100%);
-      -moz-transform: translateX(100%);
-   }
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+  }
 
-   30% {
-      opacity: 1;
-   }
+  30% {
+    opacity: 1;
+  }
 
-   100% {
-      transform: translate(0);
-      -webkit-transform: translateX(0);
-      -o-transform: translateX(0);
-      -moz-transform: translateX(0);
-   }
+  100% {
+    transform: translate(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+    -moz-transform: translateX(0);
+  }
 }
 
 @keyframes navMobile {
-   0% {
-      height: 0;
-      opacity: 0;
-   }
-   100% {
-      opacity: 1;
-      height: 10rem;
-      color: $color-grey-dark-3;
-   }
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 10rem;
+    color: $color-grey-dark-3;
+  }
 }
 
 @keyframes logo-bg {
-   0% {
-      fill: $color-primary;
-      background-position: 0%;
-   }
+  0% {
+    fill: $color-primary;
+    background-position: 0%;
+  }
 
-   100% {
-      fill: $color-grey-dark-3;
-      background-position: 100%;
-   }
+  100% {
+    fill: $color-grey-dark-3;
+    background-position: 100%;
+  }
 }
 
 @keyframes headerText {
-   0% {
-      opacity: 0%;
-      transform: translateY(-300%);
-   }
+  0% {
+    opacity: 0%;
+    transform: translateY(-300%);
+  }
 
-   100% {
-      opacity: 1;
-      transform: translateY(0);
-   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes wave {
-   0% {
-      transform: rotate(0deg);
-   }
-   10% {
-      transform: rotate(14deg);
-   }
-   20% {
-      transform: rotate(-8deg);
-   }
-   30% {
-      transform: rotate(14deg);
-   }
-   40% {
-      transform: rotate(-4deg);
-   }
-   50% {
-      transform: rotate(10deg);
-   }
-   60% {
-      transform: rotate(0deg);
-   }
-   100% {
-      transform: rotate(0deg);
-   }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes bgColorStart {
-   0% {
-      background-color: $color-grey-dark-3;
-   }
+  0% {
+    background-color: $color-grey-dark-3;
+  }
 
-   100% {
-      background-color: none;
-   }
+  100% {
+    background-color: transparent;
+  }
 }
