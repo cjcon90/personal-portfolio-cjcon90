@@ -12,6 +12,9 @@ html {
   @include respond(small-desk) {
     font-size: 52.5%;
   }
+  @include respond(phone) {
+    font-size: 50%;
+  }
 }
 
 body {
