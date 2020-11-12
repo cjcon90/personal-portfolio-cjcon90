@@ -9,6 +9,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
+  @include respond(phone) {
+    padding-top: 7rem;
+    margin-top: -7rem;
+  }
 }
 
 .profile {

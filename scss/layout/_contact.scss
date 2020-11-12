@@ -11,6 +11,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, min-content) 1fr;
   }
+  @include respond(phone) {
+    padding-top: 7rem;
+    margin-top: -7rem;
+  }
 
   &__heading {
     grid-column: 1 / 3;

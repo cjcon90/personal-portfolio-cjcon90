@@ -323,6 +323,10 @@ svg {
     .about {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr; } }
+  @media only screen and (max-width: 37.5em) {
+    .about {
+      padding-top: 7rem;
+      margin-top: -7rem; } }
 
 .profile {
   border: solid 0.3rem #1cdaba;
@@ -397,6 +401,10 @@ svg {
     .contact {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(3, min-content) 1fr; } }
+  @media only screen and (max-width: 37.5em) {
+    .contact {
+      padding-top: 7rem;
+      margin-top: -7rem; } }
   .contact__heading {
     grid-column: 1 / 3;
     padding-top: 7.5rem; }
@@ -609,9 +617,17 @@ svg {
   display: grid;
   grid-template-rows: min-content 1fr;
   align-items: center; }
+  @media only screen and (max-width: 37.5em) {
+    .projects {
+      padding-top: 12.5rem;
+      margin-top: -7rem;
+      margin-bottom: 7rem; } }
   .projects__heading {
     padding-top: 8rem;
     color: #1f1f1f; }
+    @media only screen and (max-width: 37.5em) {
+      .projects__heading {
+        padding-top: 0; } }
   .projects__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -641,6 +657,9 @@ svg {
   display: grid;
   grid-template-rows: min-content min-content;
   align-content: center; }
+  @media only screen and (max-width: 37.5em) {
+    .skills {
+      margin-bottom: 7.5rem; } }
   .skills__heading {
     text-align: center;
     margin-bottom: 6rem;
@@ -648,9 +667,6 @@ svg {
     font-family: "Montserrat", sans-serif;
     color: #1cdaba;
     text-transform: uppercase; }
-    @media only screen and (max-width: 37.5em) {
-      .skills__heading {
-        margin-top: 5rem; } }
   .skills__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

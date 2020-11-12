@@ -5,9 +5,18 @@
   grid-template-rows: min-content 1fr;
   align-items: center;
 
+  @include respond(phone) {
+    padding-top: 12.5rem;
+    margin-top: -7rem;
+    margin-bottom: 7rem;
+  }
+
   &__heading {
     padding-top: 8rem;
     color: $color-grey-dark-3;
+    @include respond(phone) {
+      padding-top: 0;
+    }
   }
 
   &__grid {
