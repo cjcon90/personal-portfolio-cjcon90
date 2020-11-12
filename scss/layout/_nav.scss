@@ -1,125 +1,125 @@
 .nav {
-   position: absolute;
-   top: 0;
-   left: 0;
-   display: flex;
-   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  z-index: 999;
 
-   @include respond(tab-port) {
-      height: 10rem;
-      width: 100%;
-      background-color: $color-primary;
-      border-bottom: $color-primary-light 1px solid;
-      animation-name: navMobile;
-      animation-delay: 3s;
-      animation-fill-mode: backwards;
-      animation-duration: 1s;
-   }
+  @include respond(tab-port) {
+    height: 8rem;
+    width: 100%;
+    background-color: $color-primary;
+    animation-name: navMobile;
+    animation-delay: 3s;
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+  }
 
-   &__list {
-      display: flex;
-      width: 100%;
-      justify-content: space-around;
-      align-items: center;
-   }
+  &__list {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-   &__item {
-      font-size: 3rem;
-      font-family: $font-heading;
-      font-weight: 600;
-      letter-spacing: 4px;
-      list-style: none;
-      text-transform: uppercase;
-      @include respond(phone) {
-         font-size: 2rem;
-         font-weight: 700;
+  &__item {
+    font-size: 3rem;
+    font-family: $font-heading;
+    font-weight: 600;
+    letter-spacing: 4px;
+    list-style: none;
+    text-transform: uppercase;
+    @include respond(phone) {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    transition: padding 0.3s;
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-grey-dark-3;
+    }
+    &:hover,
+    &:active {
+      color: $color-grey-light-1;
+      text-shadow: 0 0 3rem rgba($color-grey-dark-3, 0.5);
+      font-style: italic;
+
+      @include respond(land) {
+        padding: 0 7rem 0 2.5rem;
       }
-   }
+    }
+    &:focus {
+      @include respond(tab-port) {
+        color: $color-grey-light-1;
+        text-shadow: 0 0 3rem rgba($color-grey-dark-3, 0.5);
+        font-style: italic;
+      }
+    }
+  }
 
-   &__link {
+  @include respond(land) {
+    position: absolute;
+    top: 15rem;
+    right: 0;
+
+    &__list {
+      height: calc(100vh - 30rem);
+      flex-direction: column;
+      justify-content: space-between;
+
+      & > * {
+        animation-name: navEnter;
+        animation-duration: 1.5s;
+        animation-fill-mode: backwards;
+        animation-timing-function: ease-out;
+      }
+    }
+    &__item {
+      font-size: 6rem;
+      text-align: right;
+      margin-left: auto;
+      font-weight: 500;
+      padding: 1rem;
+      border-radius: 0.1rem;
+      background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
+    }
+
+    &__link {
       transition: padding 0.3s;
       &:link,
       &:visited {
-         text-decoration: none;
-         color: $color-grey-dark-3;
+        padding-left: 1.5rem;
       }
       &:hover,
       &:active {
-         color: $color-grey-light-1;
-         text-shadow: 0 0 3rem rgba($color-grey-dark-3, 0.5);
-         font-style: italic;
-
-         @include respond(land) {
-            padding: 0 7rem 0 2.5rem;
-         }
+        padding: 0 7rem 0 2.5rem;
       }
       &:focus {
-         @include respond(tab-port) {
-            color: $color-grey-light-1;
-            text-shadow: 0 0 3rem rgba($color-grey-dark-3, 0.5);
-            font-style: italic;
-         }
+        outline: 0.3rem dashed $color-primary-dark;
       }
-   }
-
-   @include respond(land) {
-      position: absolute;
-      top: 15rem;
-      right: 0;
-
-      &__list {
-         height: calc(100vh - 30rem);
-         flex-direction: column;
-         justify-content: space-between;
-
-         & > * {
-            animation-name: navEnter;
-            animation-duration: 1.5s;
-            animation-fill-mode: backwards;
-            animation-timing-function: ease-out;
-         }
-      }
-      &__item {
-         font-size: 6rem;
-         text-align: right;
-         margin-left: auto;
-         font-weight: 500;
-         padding: 1rem;
-         border-radius: 0.1rem;
-         background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
-      }
-
-      &__link {
-         transition: padding 0.3s;
-         &:link,
-         &:visited {
-            padding-left: 1.5rem;
-         }
-         &:hover,
-         &:active {
-            padding: 0 7rem 0 2.5rem;
-         }
-         &:focus {
-            outline: 0.3rem dashed $color-primary-dark;
-         }
-      }
-   }
+    }
+  }
 }
 
 #nav {
-   @include respond(land) {
-      &__about {
-         padding-right: 30vw;
-         animation-delay: 1.5s;
-      }
-      &__projects {
-         padding-right: 12.5vw;
-         animation-delay: 2s;
-      }
+  @include respond(land) {
+    &__about {
+      padding-right: 30vw;
+      animation-delay: 1.5s;
+    }
+    &__projects {
+      padding-right: 12.5vw;
+      animation-delay: 2s;
+    }
 
-      &__contact {
-         padding-right: 20vw;
-         animation-delay: 2.5s;
-      }
-   }
+    &__contact {
+      padding-right: 20vw;
+      animation-delay: 2.5s;
+    }
+  }
 }

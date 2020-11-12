@@ -26,7 +26,7 @@
   }
   100% {
     opacity: 1;
-    height: 10rem;
+    height: 7rem;
     color: $color-grey-dark-3;
   }
 }
@@ -89,5 +89,28 @@
 
   100% {
     background-color: transparent;
+  }
+}
+
+@keyframes logo-svg {
+  0% {
+    background-position: 0%;
+    fill: $color-primary;
+  }
+
+  100% {
+    fill: $color-grey-dark-3;
+    background-position: 100%;
+  }
+}
+@keyframes logo-text-appear {
+  0% {
+    transform: translateY(-300%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
   }
 }

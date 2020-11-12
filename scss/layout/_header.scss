@@ -23,15 +23,6 @@
       display: block;
       padding: 50% 0 0 0;
     }
-
-    @include respond(land) {
-      &:hover {
-        & ~ * > * {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    }
   }
 
   &__text {
@@ -57,10 +48,11 @@
     &--name {
       text-transform: uppercase;
       font-size: 4rem;
+      animation-name: logo-text-appear;
+      animation-delay: 3.75s;
+      animation-duration: 1s;
+      animation-fill-mode: both;
 
-      @include respond(land) {
-        transform: translateY(-200%);
-      }
       @include respond(phone) {
         font-size: 3rem;
       }
@@ -68,9 +60,10 @@
 
     &--about {
       font-size-adjust: 3rem;
-      @include respond(land) {
-        transform: translateY(-300%);
-      }
+      animation-name: logo-text-appear;
+      animation-delay: 4.25s;
+      animation-duration: 1s;
+      animation-fill-mode: both;
       @include respond(phone) {
         font-size: 2.5rem;
       }
