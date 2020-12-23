@@ -2,7 +2,7 @@
   &__card {
     width: 100%;
     max-width: 50rem;
-    height: 50rem;
+    height: 55rem;
     background-color: $color-grey-dark-3;
     border-radius: 0.3rem;
 
@@ -40,6 +40,7 @@
 
       &--link {
         grid-column: 1 / -1;
+        display: inline-block;
         &:focus,
         &:hover {
           outline: none;
@@ -70,6 +71,7 @@
       padding: 0 1rem;
       line-height: 3.25rem;
       text-align: center;
+      align-self: center;
       @include respond(phone) {
         align-self: center;
         margin: 0 5rem;

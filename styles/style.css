@@ -198,7 +198,7 @@ svg {
 .projects__card {
   width: 100%;
   max-width: 50rem;
-  height: 50rem;
+  height: 55rem;
   background-color: #1f1f1f;
   border-radius: 0.3rem;
   transition: all 0.3s;
@@ -228,7 +228,8 @@ svg {
     filter: brightness(0.8);
     transition: all 0.2s; }
     .projects__card--image--link {
-      grid-column: 1 / -1; }
+      grid-column: 1 / -1;
+      display: inline-block; }
       .projects__card--image--link:focus, .projects__card--image--link:hover {
         outline: none; }
         .projects__card--image--link:focus > *, .projects__card--image--link:hover > * {
@@ -250,7 +251,8 @@ svg {
     font-size: 1.9rem;
     padding: 0 1rem;
     line-height: 3.25rem;
-    text-align: center; }
+    text-align: center;
+    align-self: center; }
     @media only screen and (max-width: 37.5em) {
       .projects__card--description {
         align-self: center;
