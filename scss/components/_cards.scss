@@ -19,7 +19,7 @@
 
     @include respond(tab-port) {
       width: 90%;
-      height: 50rem;
+      height: 55rem;
     }
 
     @include respond(phone) {
@@ -75,7 +75,7 @@
       align-self: center;
       @include respond(phone) {
         align-self: center;
-        margin: 0 5rem;
+        margin: 0 1rem;
       }
     }
 
