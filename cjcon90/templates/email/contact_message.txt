@@ -1,0 +1,9 @@
+New message from CJCON90.DEV contact form:
+
+From: {{name}}
+
+Email: {{email}}
+
+Message:
+
+{{msg}}
