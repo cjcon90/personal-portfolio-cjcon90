@@ -33,9 +33,9 @@
       </div>
       <div class="header__text">
         <h1 class="header__text--name">Ciaran Concannon</h1>
-        <h2 class="header__text--about">Web Developer</h2>
+        <h2 class="header__text--about">Software Developer</h2>
+        <h2 class="header__text--about">Social Worker</h2>
         <h2 class="header__text--about">Dublin, Ireland</h2>
-        <h2 class="header__text--about">Open to opportunities!</h2>
       </div>
     </header>
     <nav class="nav">
@@ -67,124 +67,50 @@
           </div>
           <div class="profile__aboutme">About Me</div>
           <div class="profile__bio">
-            <p class="profile__bio--para">I'm full-stack software developer with a background in child protection social work</p>
+            <p class="profile__bio--para">I'm full-stack software developer with a background of 5+ years in child protection social work</p>
             <p class="profile__bio--para">
-              In September 2021 I am making the leap into a career in tech, and will be working with Facebook as part of the Discover Production Engineering program.
+              In April 2020 I wrote my first 'Hello World', fell in love with code and and in September 2021 made the full jump to from social work to tech, joining Facebook as a Production Engineer.
             </p>
             <p class="profile__bio--para">
-              I'm always looking to connect with new people in the world of tech, whether it's an actual discussions about tech, or more about memes and dogs - get in touch! 🙂
+              I'm always happy to connect with people in the world of development, so hit me up with any questions, ideas, exciting projects or whatever else! 🙂
             </p>
           </div>
         </div>
         <div class="skills">
           <h2 class="skills__heading heading-2">Things I can do</h2>
           <div class="skills__grid">
-            <div class="skills__block">
-              <h3 class="skills__block--title">HTML</h3>
-              <div class="skills__block--icon">
-                <i class="fab fa-html5 skill-icon" style="color: #f16529"></i>
+            {% for skill in skills %}
+              <div class="skills__block">
+                <h3 class="skills__block--title">{{skill}}</h3>
+                <div class="skills__block--icon">
+                  <img
+                  src="{{url_for('static', filename='images/logos/' + skill + '.png')}}"
+                  alt="{{skill}} Logo" class="skills__block--icon">
+                </div>
               </div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">CSS</h3>
-              <div class="skills__block--icon">
-                <i class="fab fa-css3-alt skill-icon" style="color: #2965f1"></i>
-              </div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">JavaScript</h3>
-              <div class="skills__block--icon">
-                <i class="fab fa-js skill-icon" style="color: #f0db4f"></i>
-              </div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">Vue</h3>
-              <div class="skills__block--icon"><i class="fab fa-vuejs skill-icon" style="color: #41b883"></i></div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">Sass</h3>
-              <div class="skills__block--icon"><i class="fab fa-sass skill-icon" style="color: #cd6799"></i></div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">Python</h3>
-              <div class="skills__block--icon"><i class="fab fa-python skill-icon" style="color: #f9d158"></i></div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">Git</h3>
-              <div class="skills__block--icon"><i class="fab fa-git-alt skill-icon" style="color: #f1502f"></i></div>
-            </div>
-            <div class="skills__block">
-              <h3 class="skills__block--title">NPM</h3>
-              <div class="skills__block--icon"><i class="fab fa-npm skill-icon" style="color: #cc3534"></i></div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
       <div class="projects" id="projects">
         <h2 class="projects__heading heading-2">Things I have done</h2>
         <div class="projects__grid">
+          {% for project in projects %}
           <div class="projects__card">
-            <a href="https://therhythmbox.herokuapp.com/" class="projects__card--image--link" target="_blank"
-              ><img src="{{url_for('static', filename='images/projects/the_rhythm_box-sm.webp')}}" alt="Thumbnail for the rhythm box app" class="projects__card--image"
+            <a href="{{project.live}}" class="projects__card--image--link" target="_blank"
+              ><img src="{{url_for('static', filename=project.image)}}" alt="Thumbnail for the {{project.title}} app" class="projects__card--image"
             /></a>
-            <h3 class="projects__card--heading">The Rhythm Box</h3>
+            <h3 class="projects__card--heading">{{project.title}}</h3>
             <p class="projects__card--description">
-              E-commerce site feat. user auth, order history, reviews & product filtering/ sorting. Built with Django, SQL, Stripe payments and Sass
+              {{project.description}}
             </p>
-            <a href="https://therhythmbox.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1"
+            <a href="{{project.live}}" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1"
               ><button class="projects__card--btn">Live</button></a
             >
-            <a href="https://github.com/cjcon90/the_rhythm_box" class="projects__card--link" tabindex="-1"><button class="projects__card--btn">Repo</button></a>
+            <a href="{{project.repo}}" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1">
+              <button class="projects__card--btn">Repo</button></a>
           </div>
-          <div class="projects__card">
-            <a href="https://hot-dogz.herokuapp.com" class="projects__card--image--link" target="_blank"
-              ><img
-                src="{{url_for('static', filename='images/projects/hot-dogz-sm.webp')}}"
-                alt="Thumbnail for Hot Dogz app"
-                class="projects__card--image"
-            /></a>
-            <h3 class="projects__card--heading">Hot Dogz</h3>
-            <p class="projects__card--description">
-              A dog-themed photo sharing Python Flask app, where users can open accounts, upload, like, favourite and comment on photos.
-            </p>
-            <a href="https://hot-dogz.herokuapp.com" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Live</button></a
-            >
-            <a href="https://github.com/cjcon90/hot-dogz" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Repo</button></a
-            >
-          </div>
-          <div class="projects__card">
-            <a href="https://cjcon90.github.io/country-quiz/" class="projects__card--image--link" target="_blank"
-              ><img
-                src="{{url_for('static', filename='images/projects/country-quiz-sm.png')}}"
-                alt="Thumbnail for country quiz app"
-                class="projects__card--image"
-            /></a>
-            <h3 class="projects__card--heading">Country Quiz</h3>
-            <p class="projects__card--description">
-              A JavaScript Quiz App build using the REST Countries API, with region and difficulty selectors
-            </p>
-            <a href="https://cjcon90.github.io/country-quiz/" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Live</button></a
-            >
-            <a href="https://github.com/cjcon90/country-quiz" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Repo</button></a
-            >
-          </div>
-          <div class="projects__card">
-            <a href="https://cjcon90.github.io/safetree/" class="projects__card--image--link" target="_blank"
-              ><img src="{{url_for('static', filename='images/projects/safetree-sm.png')}}" alt="Thumbnail for Adventure Therapy website" class="projects__card--image"
-            /></a>
-            <h3 class="projects__card--heading">SafeTree Landing Page</h3>
-            <p class="projects__card--description">Fully responsive, static landing page for a fictional Adventure Therapy organisation, showcasing clean and aesthetically pleasing UX & UI</p>
-            <a href="https://cjcon90.github.io/safetree/" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Live</button></a
-            >
-            <a href="https://github.com/cjcon90/safetree" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Repo</button></a
-            >
-          </div>
+          {% endfor %}
         </div>
       </div>
       <div class="contact" id="contact">
@@ -203,7 +129,7 @@
               <p class="form__section--error" id="email-error">What's your email?</p>
             </div>
             <div class="form__section">
-              <textarea name="message" id="message" placeholder="Message" cols="30" rows="5" required class="form__section--input"></textarea>
+              <textarea name="message" id="message" placeholder="Message" cols="30" rows="4" required class="form__section--input"></textarea>
               <label for="message" class="form__section--label">Message</label>
               <p class="form__section--error" id="message-error">Please enter a message!</p>
             </div>

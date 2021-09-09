@@ -16,12 +16,3 @@ USER cjcon90
 
 EXPOSE 5000
 ENTRYPOINT ["./boot.sh"]
-
-# FROM python:3.9
-# WORKDIR /app
-# COPY requirements.txt requirements.txt
-# RUN ["pip3", "install", "-r", "requirements.txt"]
-# COPY . .
-# EXPOSE 5000
-# ENTRYPOINT [ "flask" ]
-# CMD ["run"]

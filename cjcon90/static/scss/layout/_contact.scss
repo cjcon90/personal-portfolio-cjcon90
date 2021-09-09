@@ -12,7 +12,8 @@
     grid-template-rows: repeat(3, min-content) 1fr;
   }
   @include respond(phone) {
-    padding-top: 7rem;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
     margin-top: -7rem;
   }
 

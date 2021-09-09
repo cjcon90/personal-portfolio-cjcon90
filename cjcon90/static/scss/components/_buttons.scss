@@ -44,6 +44,9 @@
 }
 
 #submit {
-  margin: 0 auto 2rem auto;
+  margin: 1.5rem auto;
   width: 60%;
+  @include respond(phone) {
+    margin-top: 2.5rem;
+  }
 }

@@ -37,6 +37,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    &--icon {
+      max-width: 10rem;
+      max-height: 10rem;
+    }
 
     &--title {
       font-family: $font-text;
