@@ -44,7 +44,7 @@ def index():
     """
 	Route for main portfolio landing page
     """
-    if request.method == 'POST':
+    if request.method == 'POST' and not _is_spambot(request.form):
         send_email(subject='[CJCON90.DEV] Contact Form Submission',
                    sender=current_app.config['ADMINS'][0],
                    recipients=[current_app.config['ADMINS'][1]],
@@ -58,3 +58,7 @@ def index():
                                              msg=request.form['message']))
         flash("Thanks for getting in touch!  👍")
     return render_template('main/index.html', skills=SKILLS, projects=PROJECTS)
+
+def _is_spambot(form):
+    return any([form["url"],form["phone"]])
+

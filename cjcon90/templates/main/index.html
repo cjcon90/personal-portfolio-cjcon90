@@ -1,176 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Description" content="Personal portfolio page for web developer Ciaran Concannon CJCON90" />
-    <meta property="og:title" content="CJCON90 | Web Developer" />
-    <meta property="og:description" content="Personal portfolio page for web developer Ciaran Concannon CJCON90"" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/site-thumbnail-sm.webp" />
-    <meta property="og:url" content="https://www.cjcon90.dev/" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Oxygen:wght@300;400;700&display=swap");
-    </style>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
-    <title>CJCON90 | Web Developer</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__video">
-        <video class="header__video--content" autoplay muted loop>
-          <source src="{{ url_for('static', filename='images/hero-vid.mp4') }}" type="video/mp4" />
-          Your browser is not supported!
-        </video>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="Description" content="Personal portfolio page for web developer Ciaran Concannon CJCON90" />
+  <meta property="og:title" content="CJCON90 | Web Developer" />
+  <meta property="og:description" content="Personal portfolio page for web developer Ciaran Concannon CJCON90"" />
+    <meta property=" og:type" content="website" />
+  <meta property="og:image" content="/images/site-thumbnail-sm.webp" />
+  <meta property="og:url" content="https://www.cjcon90.dev/" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Oxygen:wght@300;400;700&display=swap");
+  </style>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
+  <title>CJCON90 | Web Developer</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__video">
+      <video class="header__video--content" autoplay muted loop>
+        <source src="{{ url_for('static', filename='images/hero-vid.mp4') }}" type="video/mp4" />
+        Your browser is not supported!
+      </video>
+    </div>
+    <div class="header__logo">
+      <svg viewBox="0 0 599 89" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m358.9 44.5v42l34.1-0.2 34-0.4s0.4-41.7 0.4-41.7c0.3-40.9 0.3-41.6-2.2-41.6-2.4 0-2.5 1-2.7 28.1l-0.4 28.1-28.8-28.1c-19.8-19.3-29.6-28-31.5-28.1h-2.9v42zm-247.6-31.3v10.7h11.9 11.9v16.2c0 18.4-1.2 23.2-6.5 26-7.1 3.8-15 0.1-17.1-7.8-0.9-3.6-1-3.6-12-4l-11-0.4 0.9 5.3c1 6 4.4 13 8.9 18.4 8.8 10.4 27.5 13.5 40.8 6.8 7.5-3.8 14-11.4 16.1-18.8 0.6-2.5 1.3-17.5 1.3-33.8v-29.1h-22.5-22.5v10.7zm358.3-9.5c-12.7 5.8-19.1 21.9-13.7 35 4.8 11.3 18.1 19.2 29.6 17.3 5.8-1 6.4-2.4-6.7 15.8-5.4 7.4-9.7 13.8-9.7 14.2 0 0.4 1 0.6 2.3 0.6 2.5 0 32.8-40.6 35.9-48.1 5.3-12.5-1-28.5-13.5-34.5-6.9-3.3-17.1-3.4-24-0.2zm21.4 3.8c11.9 5.4 17 20.7 10.8 32.1-2 3.8-8 9-11.9 10.5-4.9 1.9-12.6 1.8-17.5-0.4-7.1-2.9-14.6-13.9-14.6-21.4 0-3.8 3-11 5.9-14.5 6.9-8 17.9-10.6 27.4-6.3zm74.9-6.1c-6.2 1-11.5 3.8-15.9 8.4-6.4 6.7-7.2 10.9-7.2 34.9s0.9 28.1 7.3 35c8.3 8.8 23.1 10.9 34.1 5 6.5-3.6 11.6-10 13.6-16.9 0.8-2.4 1.3-12.7 1.3-23.1 0-20.4-0.7-24.9-5.6-31.8-6-8.8-16.4-13-27.5-11.4zm13.8 6.2c2.8 1.3 6.4 3.8 8 5.5 2.9 3.1 2.9 3.3 0.6 6.1-23.6 29.7-39.9 48.5-40.8 47.1-0.5-0.9-1-10.5-1-21.4 0-21.1 1-25.9 6.6-32.1 3.8-4 11.8-7.6 17.1-7.6 2.4 0 6.6 1.1 9.4 2.4zm14.4 36.9c0 22.6 0 23.1-3.2 28-4.3 6.5-9.9 10.3-17.1 11.3-7.2 1-15.1-1.7-20.1-6.9 0 0-3.4-3.5-3.4-3.5s21-25.8 21-25.8c11.5-14.3 21.4-25.9 22-25.9 0.5 0 0.9 10.3 0.9 22.9zm-303.1-42.2c-8.7 2.8-18.6 12.9-21.3 21.8-2.2 7.8-2.7 31.8-0.7 39.1 2.3 7.8 8.9 16.3 16.1 20.7 17 10.2 38.1 4.3 48.2-13.4 3.9-6.9 3.9-7 3.9-25.7 0-17.9-0.1-19-3.4-25.1-1.7-3.5-4.9-7.8-6.9-9.5-9.1-8.5-23.8-11.8-35.9-7.9zm20.6 22.9c3.6 3.6 3.6 3.9 3.6 18.3 0 16.4-1.4 20.7-7.4 23.2-5.2 2.1-11.9 0.6-15.1-3.4-2.2-2.9-2.5-5-2.5-18.8 0-15.5 0-15.7 3.6-19.3 2.9-2.9 4.8-3.6 8.9-3.6 4.1 0 6 0.8 8.9 3.6zm-106-23.7c-10 2.1-17.4 7.5-22.4 16.6-3.6 6.5-3.6 6.9-3.6 26.7 0 22.8 1 26.3 10.4 34.7 7.5 6.8 14.5 8.9 27 8.3 9-0.5 11.5-1.1 16.6-4.3 7.5-4.6 12.6-12.8 13.8-21.6l0.8-6.5h-10.8-10.6l-0.9 3.8c-2 8.9-13.5 11.8-20.9 5.1-4-3.6-4.1-3.9-4.5-15.8-0.2-6.6-0.1-14 0.4-16.5 1.1-6.4 6-10.4 12.4-10.4 6.5 0 10.4 2.6 11.8 7.9l1 4 10.9 0.4c10.6 0.4 10.9 0.3 10.9-2.5 0-5.1-2.7-12.8-6.4-18.2-6.4-9.1-22.4-14.4-35.8-11.7zm-177.6 0c-12.6 2.6-22.5 11.3-25.9 22.7-2.6 8.7-2.6 32.2-0.1 40.7 2.4 8.2 9 15.8 17.1 19.8 12.1 6.1 31.6 3.9 40.9-4.6 4.1-3.9 8.9-14.4 8.9-20.1v-4.6h-10.6c-9.9 0-10.6 0.1-10.6 2.6 0 1.4-1.7 4.3-3.7 6.4-3.5 3.5-4.5 3.8-9.8 3.1-10.5-1.1-14-9.8-12.4-30.2 0.6-7.9 1.3-9.3 4.6-12.4 7.1-6.4 18.8-3.4 20.6 5.4l0.9 3.8h10.5 10.5v-4.1c-0.1-5.5-2.7-12.5-6.9-17.9-6.2-8.1-21.9-13-34-10.5z" />
+      </svg>
+    </div>
+    <div class="header__text">
+      <h1 class="header__text--name">Ciaran Concannon</h1>
+      <h2 class="header__text--about">Software Developer</h2>
+      <h2 class="header__text--about">Social Worker</h2>
+      <h2 class="header__text--about">Dublin, Ireland</h2>
+    </div>
+  </header>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item" id="nav__about"><a href="#about" class="nav__link">About</a></li>
+      <li class="nav__item" id="nav__projects"><a href="#projects" class="nav__link">Projects</a></li>
+      <li class="nav__item" id="nav__contact"><a href="#contact" class="nav__link">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <!-- FLASH MESSAGES -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash">
+      {% for category, message in messages %}
+      <div class="flash__message">
+        <!-- Category decides color of flash and icon used -->
+        <p class="flash__message--text">{{message}}</p>
       </div>
-      <div class="header__logo">
-        <svg viewBox="0 0 599 89" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m358.9 44.5v42l34.1-0.2 34-0.4s0.4-41.7 0.4-41.7c0.3-40.9 0.3-41.6-2.2-41.6-2.4 0-2.5 1-2.7 28.1l-0.4 28.1-28.8-28.1c-19.8-19.3-29.6-28-31.5-28.1h-2.9v42zm-247.6-31.3v10.7h11.9 11.9v16.2c0 18.4-1.2 23.2-6.5 26-7.1 3.8-15 0.1-17.1-7.8-0.9-3.6-1-3.6-12-4l-11-0.4 0.9 5.3c1 6 4.4 13 8.9 18.4 8.8 10.4 27.5 13.5 40.8 6.8 7.5-3.8 14-11.4 16.1-18.8 0.6-2.5 1.3-17.5 1.3-33.8v-29.1h-22.5-22.5v10.7zm358.3-9.5c-12.7 5.8-19.1 21.9-13.7 35 4.8 11.3 18.1 19.2 29.6 17.3 5.8-1 6.4-2.4-6.7 15.8-5.4 7.4-9.7 13.8-9.7 14.2 0 0.4 1 0.6 2.3 0.6 2.5 0 32.8-40.6 35.9-48.1 5.3-12.5-1-28.5-13.5-34.5-6.9-3.3-17.1-3.4-24-0.2zm21.4 3.8c11.9 5.4 17 20.7 10.8 32.1-2 3.8-8 9-11.9 10.5-4.9 1.9-12.6 1.8-17.5-0.4-7.1-2.9-14.6-13.9-14.6-21.4 0-3.8 3-11 5.9-14.5 6.9-8 17.9-10.6 27.4-6.3zm74.9-6.1c-6.2 1-11.5 3.8-15.9 8.4-6.4 6.7-7.2 10.9-7.2 34.9s0.9 28.1 7.3 35c8.3 8.8 23.1 10.9 34.1 5 6.5-3.6 11.6-10 13.6-16.9 0.8-2.4 1.3-12.7 1.3-23.1 0-20.4-0.7-24.9-5.6-31.8-6-8.8-16.4-13-27.5-11.4zm13.8 6.2c2.8 1.3 6.4 3.8 8 5.5 2.9 3.1 2.9 3.3 0.6 6.1-23.6 29.7-39.9 48.5-40.8 47.1-0.5-0.9-1-10.5-1-21.4 0-21.1 1-25.9 6.6-32.1 3.8-4 11.8-7.6 17.1-7.6 2.4 0 6.6 1.1 9.4 2.4zm14.4 36.9c0 22.6 0 23.1-3.2 28-4.3 6.5-9.9 10.3-17.1 11.3-7.2 1-15.1-1.7-20.1-6.9 0 0-3.4-3.5-3.4-3.5s21-25.8 21-25.8c11.5-14.3 21.4-25.9 22-25.9 0.5 0 0.9 10.3 0.9 22.9zm-303.1-42.2c-8.7 2.8-18.6 12.9-21.3 21.8-2.2 7.8-2.7 31.8-0.7 39.1 2.3 7.8 8.9 16.3 16.1 20.7 17 10.2 38.1 4.3 48.2-13.4 3.9-6.9 3.9-7 3.9-25.7 0-17.9-0.1-19-3.4-25.1-1.7-3.5-4.9-7.8-6.9-9.5-9.1-8.5-23.8-11.8-35.9-7.9zm20.6 22.9c3.6 3.6 3.6 3.9 3.6 18.3 0 16.4-1.4 20.7-7.4 23.2-5.2 2.1-11.9 0.6-15.1-3.4-2.2-2.9-2.5-5-2.5-18.8 0-15.5 0-15.7 3.6-19.3 2.9-2.9 4.8-3.6 8.9-3.6 4.1 0 6 0.8 8.9 3.6zm-106-23.7c-10 2.1-17.4 7.5-22.4 16.6-3.6 6.5-3.6 6.9-3.6 26.7 0 22.8 1 26.3 10.4 34.7 7.5 6.8 14.5 8.9 27 8.3 9-0.5 11.5-1.1 16.6-4.3 7.5-4.6 12.6-12.8 13.8-21.6l0.8-6.5h-10.8-10.6l-0.9 3.8c-2 8.9-13.5 11.8-20.9 5.1-4-3.6-4.1-3.9-4.5-15.8-0.2-6.6-0.1-14 0.4-16.5 1.1-6.4 6-10.4 12.4-10.4 6.5 0 10.4 2.6 11.8 7.9l1 4 10.9 0.4c10.6 0.4 10.9 0.3 10.9-2.5 0-5.1-2.7-12.8-6.4-18.2-6.4-9.1-22.4-14.4-35.8-11.7zm-177.6 0c-12.6 2.6-22.5 11.3-25.9 22.7-2.6 8.7-2.6 32.2-0.1 40.7 2.4 8.2 9 15.8 17.1 19.8 12.1 6.1 31.6 3.9 40.9-4.6 4.1-3.9 8.9-14.4 8.9-20.1v-4.6h-10.6c-9.9 0-10.6 0.1-10.6 2.6 0 1.4-1.7 4.3-3.7 6.4-3.5 3.5-4.5 3.8-9.8 3.1-10.5-1.1-14-9.8-12.4-30.2 0.6-7.9 1.3-9.3 4.6-12.4 7.1-6.4 18.8-3.4 20.6 5.4l0.9 3.8h10.5 10.5v-4.1c-0.1-5.5-2.7-12.5-6.9-17.9-6.2-8.1-21.9-13-34-10.5z"
-          />
-        </svg>
-      </div>
-      <div class="header__text">
-        <h1 class="header__text--name">Ciaran Concannon</h1>
-        <h2 class="header__text--about">Software Developer</h2>
-        <h2 class="header__text--about">Social Worker</h2>
-        <h2 class="header__text--about">Dublin, Ireland</h2>
-      </div>
-    </header>
-    <nav class="nav">
-      <ul class="nav__list">
-        <li class="nav__item" id="nav__about"><a href="#about" class="nav__link">About</a></li>
-        <li class="nav__item" id="nav__projects"><a href="#projects" class="nav__link">Projects</a></li>
-        <li class="nav__item" id="nav__contact"><a href="#contact" class="nav__link">Contact</a></li>
-      </ul>
-    </nav>
-    <main>
-      <!-- FLASH MESSAGES -->
-      {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          <div class="flash">
-            {% for category, message in messages %}
-              <div class="flash__message">
-                <!-- Category decides color of flash and icon used -->
-                <p class="flash__message--text">{{message}}</p>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-      {% endwith %}
-      <div class="about" id="about">
-        <div class="profile">
-          <div class="profile__heading">
-            <h2 class="profile__heading--main">Hi <span class="waving-hand">👋</span> I'm Ciaran</h2>
-            <h3 class="profile__heading--sub">{ sounds-like: 'keearan' }</h3>
-          </div>
-          <div class="profile__aboutme">About Me</div>
-          <div class="profile__bio">
-            <p class="profile__bio--para">I'm full-stack software developer with a background of 5+ years in child protection social work</p>
-            <p class="profile__bio--para">
-              In April 2020 I wrote my first 'Hello World', fell in love with code and and in September 2021 made the full jump to from social work to tech, joining Facebook as a Production Engineer.
-            </p>
-            <p class="profile__bio--para">
-              I'm always happy to connect with people in the world of development, so hit me up with any questions, ideas, exciting projects or whatever else! 🙂
-            </p>
-          </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="about" id="about">
+      <div class="profile">
+        <div class="profile__heading">
+          <h2 class="profile__heading--main">Hi <span class="waving-hand">👋</span> I'm Ciaran</h2>
+          <h3 class="profile__heading--sub">{ sounds-like: 'keearan' }</h3>
         </div>
-        <div class="skills">
-          <h2 class="skills__heading heading-2">Things I can do</h2>
-          <div class="skills__grid">
-            {% for skill in skills %}
-              <div class="skills__block">
-                <h3 class="skills__block--title">{{skill}}</h3>
-                <div class="skills__block--icon">
-                  <img
-                  src="{{url_for('static', filename='images/logos/' + skill + '.png')}}"
-                  alt="{{skill}} Logo" class="skills__block--icon">
-                </div>
-              </div>
-            {% endfor %}
-          </div>
+        <div class="profile__aboutme">About Me</div>
+        <div class="profile__bio">
+          <p class="profile__bio--para">I'm full-stack software developer with a background of 5+ years in child
+            protection social work</p>
+          <p class="profile__bio--para">
+            In April 2020 I wrote my first 'Hello World', fell in love with code and and in September 2021 made the full
+            jump to from social work to tech, joining Facebook as a Production Engineer.
+          </p>
+          <p class="profile__bio--para">
+            I'm always happy to connect with people in the world of development, so hit me up with any questions, ideas,
+            exciting projects or whatever else! 🙂
+          </p>
         </div>
       </div>
-      <div class="projects" id="projects">
-        <h2 class="projects__heading heading-2">Things I have done</h2>
-        <div class="projects__grid">
-          {% for project in projects %}
-          <div class="projects__card">
-            <a href="{{project.live}}" class="projects__card--image--link" target="_blank"
-              ><img src="{{url_for('static', filename=project.image)}}" alt="Thumbnail for the {{project.title}} app" class="projects__card--image"
-            /></a>
-            <h3 class="projects__card--heading">{{project.title}}</h3>
-            <p class="projects__card--description">
-              {{project.description}}
-            </p>
-            <a href="{{project.live}}" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1"
-              ><button class="projects__card--btn">Live</button></a
-            >
-            <a href="{{project.repo}}" target="_blank" rel="noopener noreferrer" class="projects__card--link" tabindex="-1">
-              <button class="projects__card--btn">Repo</button></a>
+      <div class="skills">
+        <h2 class="skills__heading heading-2">Things I can do</h2>
+        <div class="skills__grid">
+          {% for skill in skills %}
+          <div class="skills__block">
+            <h3 class="skills__block--title">{{skill}}</h3>
+            <div class="skills__block--icon">
+              <img src="{{url_for('static', filename='images/logos/' + skill + '.png')}}" alt="{{skill}} Logo"
+                class="skills__block--icon">
+            </div>
           </div>
           {% endfor %}
         </div>
       </div>
-      <div class="contact" id="contact">
-        <h2 class="contact__heading heading-2">Get in touch</h2>
-        <div class="contact__form">
-          <h3 class="contact__social--heading heading-3">&darr; send me a message</h3>
-          <form class="form" id="contact_form" name="contact" action="{{url_for('main.index')}}" method="POST">
-            <div class="form__section">
-              <input type="text" id="name" name="name" placeholder="Name" required class="form__section--input" />
-              <label for="name" class="form__section--label">Name</label>
-              <p class="form__section--error" id="name-error">What's your name?</p>
-            </div>
-            <div class="form__section">
-              <input type="email" id="email" name="email" placeholder="Email" required class="form__section--input" />
-              <label for="email" class="form__section--label">Email</label>
-              <p class="form__section--error" id="email-error">What's your email?</p>
-            </div>
-            <div class="form__section">
-              <textarea name="message" id="message" placeholder="Message" cols="30" rows="4" required class="form__section--input"></textarea>
-              <label for="message" class="form__section--label">Message</label>
-              <p class="form__section--error" id="message-error">Please enter a message!</p>
-            </div>
-            <div class="form__section">
-              <button type="submit" id="submit">Submit</button>
-            </div>
-          </form>
-        </div>
-
-        <div class="contact__social">
-          <h3 class="contact__social--heading heading-3">or say hello here &darr;</h3>
-          <a class="contact__link" href="https://github.com/cjcon90" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github social-icon"></i>
-            <h4 class="contact__link--text">github.com/cjcon90</h4>
-          </a>
-          <a class="contact__link" href="https://www.linkedin.com/in/ciaran-concannon/" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin-in social-icon"></i>
-            <h4 class="contact__link--text">linkedin.com/in/ciaran-concannon/</h4>
-          </a>
-          <a class="contact__link" href="mailto:cjcon90@pm.me" target="_blank" rel="noopener noreferrer">
-            <i class="fas fa-envelope social-icon"></i>
-            <h4 class="contact__link--text">cjcon90@pm.me</h4>
-          </a>
-          <a class="contact__link" href="https://twitter.com/cjcon90" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter social-icon"></i>
-            <h4 class="contact__link--text">twitter.com/cjcon90</h4>
-          </a>
-          <a class="contact__link" href="https://dev.to/cjcon90" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-dev social-icon"></i>
-            <h4 class="contact__link--text">dev.to/cjcon90</h4>
-          </a>
-        </div>
-      </div>
-    </main>
-    <div class="loading-overlay no-display">
-      <h1 class="bold loading__spinner">
-              <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-      </h1>
     </div>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous" defer></script>
-    <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
-  </body>
+    <div class="projects" id="projects">
+      <h2 class="projects__heading heading-2">Things I have done</h2>
+      <div class="projects__grid">
+        {% for project in projects %}
+        <div class="projects__card">
+          <a href="{{project.live}}" class="projects__card--image--link" target="_blank"><img
+              src="{{url_for('static', filename=project.image)}}" alt="Thumbnail for the {{project.title}} app"
+              class="projects__card--image" /></a>
+          <h3 class="projects__card--heading">{{project.title}}</h3>
+          <p class="projects__card--description">
+            {{project.description}}
+          </p>
+          <a href="{{project.live}}" target="_blank" rel="noopener noreferrer" class="projects__card--link"
+            tabindex="-1"><button class="projects__card--btn">Live</button></a>
+          <a href="{{project.repo}}" target="_blank" rel="noopener noreferrer" class="projects__card--link"
+            tabindex="-1">
+            <button class="projects__card--btn">Repo</button></a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="contact" id="contact">
+      <h2 class="contact__heading heading-2">Get in touch</h2>
+      <div class="contact__form">
+        <h3 class="contact__social--heading heading-3">&darr; send me a message</h3>
+        <form class="form" id="contact_form" name="contact" action="{{url_for('main.index')}}" method="POST">
+          <div class="form__section">
+            <input type="text" id="name" name="name" placeholder="Name" required class="form__section--input" />
+            <p class="testforauto">Leave this empty: <input type="text" name="phone" id="phone" /></p>
+            <label for="name" class="form__section--label">Name</label>
+            <p class="form__section--error" id="name-error">What's your name?</p>
+          </div>
+          <div class="form__section">
+            <input type="email" id="email" name="email" placeholder="Email" required class="form__section--input" />
+            <p class="testforauto">Leave this empty: <input type="text" name="url" id="url" /></p>
+            <label for="email" class="form__section--label">Email</label>
+            <p class="form__section--error" id="email-error">What's your email?</p>
+          </div>
+          <div class="form__section">
+            <textarea name="message" id="message" placeholder="Message" cols="30" rows="4" required
+              class="form__section--input"></textarea>
+            <label for="message" class="form__section--label">Message</label>
+            <p class="form__section--error" id="message-error">Please enter a message!</p>
+          </div>
+          <div class="form__section">
+            <button type="submit" id="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact__social">
+        <h3 class="contact__social--heading heading-3">or say hello here &darr;</h3>
+        <a class="contact__link" href="https://github.com/cjcon90" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github social-icon"></i>
+          <h4 class="contact__link--text">github.com/cjcon90</h4>
+        </a>
+        <a class="contact__link" href="https://www.linkedin.com/in/ciaran-concannon/" target="_blank"
+          rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in social-icon"></i>
+          <h4 class="contact__link--text">linkedin.com/in/ciaran-concannon/</h4>
+        </a>
+        <a class="contact__link" href="mailto:cjcon90@pm.me" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-envelope social-icon"></i>
+          <h4 class="contact__link--text">cjcon90@pm.me</h4>
+        </a>
+        <a class="contact__link" href="https://twitter.com/cjcon90" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter social-icon"></i>
+          <h4 class="contact__link--text">twitter.com/cjcon90</h4>
+        </a>
+        <a class="contact__link" href="https://dev.to/cjcon90" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-dev social-icon"></i>
+          <h4 class="contact__link--text">dev.to/cjcon90</h4>
+        </a>
+      </div>
+    </div>
+  </main>
+  <div class="loading-overlay no-display">
+    <h1 class="bold loading__spinner">
+      <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+    </h1>
+  </div>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous" defer></script>
+  <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
+</body>
+
 </html>
