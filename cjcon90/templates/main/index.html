@@ -121,6 +121,7 @@
       <div class="contact__form">
         <h3 class="contact__social--heading heading-3">&darr; send me a message</h3>
         <form class="form" id="contact_form" name="contact" action="{{url_for('main.index')}}" method="POST">
+          {{ recaptcha }}
           <div class="form__section">
             <input type="text" id="name" name="name" placeholder="Name" required class="form__section--input" />
             <label for="name" class="form__section--label">Name</label>
@@ -138,9 +139,7 @@
             <p class="form__section--error" id="message-error">Please enter a message!</p>
           </div>
           <div class="form__section">
-            <button class="g-recaptcha" type="submit" id="submit"
-              data-sitekey="6LeKoH8fAAAAAJuTyMIRLpnMLg2e_m18a7a0qahS" data-callback='onSubmit'
-              data-action='submit'>Submit</button>
+            <button type="submit" id="submit">Submit</button>
           </div>
         </form>
       </div>
@@ -179,7 +178,6 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous" defer></script>
   <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 
 </html>

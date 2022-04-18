@@ -6,6 +6,7 @@ load_dotenv()
 class Config(object):
     # Flask Secret Key
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    RECAPTCHA_SECRET_KEY = os.environ.get('RECAPTCHA_SECRET_KEY')
 
     # Email configuration
     MAIL_SERVER = "smtp.gmail.com"

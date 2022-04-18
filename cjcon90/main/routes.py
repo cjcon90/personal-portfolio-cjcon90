@@ -1,5 +1,6 @@
 from flask import render_template, Blueprint, request, flash, current_app
 from cjcon90.main.utils import send_email
+from flask_recaptcha import ReCaptcha
 
 
 SKILLS = ["JavaScript", "Python", "Flask", "Django", "Sass", "Tailwind", "Docker", "Linux"]
@@ -35,8 +36,9 @@ PROJECTS = [
 ]
 
 
-main = Blueprint('main', __name__)
 
+main = Blueprint('main', __name__)
+recaptcha = ReCaptcha(current_app)
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -44,16 +46,17 @@ def index():
 	Route for main portfolio landing page
     """
     if request.method == 'POST':
-        send_email(subject='[CJCON90.DEV] Contact Form Submission',
-                   sender=current_app.config['ADMINS'][0],
-                   recipients=[current_app.config['ADMINS'][1]],
-                   text_body=render_template('email/contact_message.txt',
-                                             name=request.form['name'],
-                                             email=request.form['email'],
-                                             msg=request.form['message']),
-                   html_body=render_template('email/contact_message.html',
-                                             name=request.form['name'],
-                                             email=request.form['email'],
-                                             msg=request.form['message']))
+        if recaptcha.verify():
+            send_email(subject='[CJCON90.DEV] Contact Form Submission',
+                       sender=current_app.config['ADMINS'][0],
+                       recipients=[current_app.config['ADMINS'][1]],
+                       text_body=render_template('email/contact_message.txt',
+                                                 name=request.form['name'],
+                                                 email=request.form['email'],
+                                                 msg=request.form['message']),
+                       html_body=render_template('email/contact_message.html',
+                                                 name=request.form['name'],
+                                                 email=request.form['email'],
+                                                 msg=request.form['message']))
         flash("Thanks for getting in touch!  👍")
     return render_template('main/index.html', skills=SKILLS, projects=PROJECTS)
