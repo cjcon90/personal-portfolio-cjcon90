@@ -1,5 +1,4 @@
-from flask import render_template, redirect, url_for, \
-    Blueprint, request, flash, current_app
+from flask import render_template, Blueprint, request, flash, current_app
 from cjcon90.main.utils import send_email
 
 
@@ -44,7 +43,7 @@ def index():
     """
 	Route for main portfolio landing page
     """
-    if request.method == 'POST' and not _is_spambot(request.form):
+    if request.method == 'POST':
         send_email(subject='[CJCON90.DEV] Contact Form Submission',
                    sender=current_app.config['ADMINS'][0],
                    recipients=[current_app.config['ADMINS'][1]],
@@ -58,7 +57,3 @@ def index():
                                              msg=request.form['message']))
         flash("Thanks for getting in touch!  👍")
     return render_template('main/index.html', skills=SKILLS, projects=PROJECTS)
-
-def _is_spambot(form):
-    return any([form["url"],form["phone"]])
-

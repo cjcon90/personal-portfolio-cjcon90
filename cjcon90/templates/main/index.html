@@ -123,13 +123,11 @@
         <form class="form" id="contact_form" name="contact" action="{{url_for('main.index')}}" method="POST">
           <div class="form__section">
             <input type="text" id="name" name="name" placeholder="Name" required class="form__section--input" />
-            <p class="testforauto">Leave this empty: <input type="text" name="phone" id="phone" /></p>
             <label for="name" class="form__section--label">Name</label>
             <p class="form__section--error" id="name-error">What's your name?</p>
           </div>
           <div class="form__section">
             <input type="email" id="email" name="email" placeholder="Email" required class="form__section--input" />
-            <p class="testforauto">Leave this empty: <input type="text" name="url" id="url" /></p>
             <label for="email" class="form__section--label">Email</label>
             <p class="form__section--error" id="email-error">What's your email?</p>
           </div>
@@ -140,7 +138,9 @@
             <p class="form__section--error" id="message-error">Please enter a message!</p>
           </div>
           <div class="form__section">
-            <button type="submit" id="submit">Submit</button>
+            <button class="g-recaptcha" type="submit" id="submit"
+              data-sitekey="6LeKoH8fAAAAAJuTyMIRLpnMLg2e_m18a7a0qahS" data-callback='onSubmit'
+              data-action='submit'>Submit</button>
           </div>
         </form>
       </div>
@@ -179,6 +179,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous" defer></script>
   <script src="{{url_for('static', filename='scripts/app.js')}}"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 
 </html>
