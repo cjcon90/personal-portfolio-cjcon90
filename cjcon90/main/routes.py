@@ -49,7 +49,7 @@ def index():
         if recaptcha.verify():
             send_email(subject='[CJCON90.DEV] Contact Form Submission',
                        sender=current_app.config['ADMINS'][0],
-                       recipients=[current_app.config['ADMINS'][1]],
+                       recipients=current_app.config['ADMINS'],
                        text_body=render_template('email/contact_message.txt',
                                                  name=request.form['name'],
                                                  email=request.form['email'],
