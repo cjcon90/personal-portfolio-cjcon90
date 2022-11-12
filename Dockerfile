@@ -1,6 +1,6 @@
 FROM python
 RUN useradd cjcon90
-WORKDIR /home/cjcon90/personal-portfolio-cjcon90
+WORKDIR /var/www/personal-portfolio-cjcon90
 COPY requirements.txt requirements.txt
 RUN python -m venv venv
 RUN venv/bin/pip install -r requirements.txt
