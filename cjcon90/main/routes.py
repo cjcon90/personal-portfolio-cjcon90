@@ -9,14 +9,14 @@ PROJECTS = [
         "title": "The Rhythm Box",
         "description": "E-commerce site feat. user auth, order history, reviews & product filtering/ sorting. Built with Django, SQL, Stripe payments and Sass",
         "repo": "https://github.com/cjcon90/the_rhythm_box",
-        "live": "https://therhythmbox.herokuapp.com/",
+        "live": "https://therhythmbox.cjcon90.dev",
         "image": "images/projects/the_rhythm_box-sm.webp"
     },
     {
         "title": "Hot Dogz",
         "description": "A dog-themed photo sharing Python Flask app, where users can open accounts, upload, like, favourite and comment on photos.",
         "repo": "https://github.com/cjcon90/hot-dogz",
-        "live": "https://hot-dogz.herokuapp.com",
+        "live": "https://hot-dogz.cjcon90.dev",
         "image": "images/projects/hot-dogz-sm.webp",
     },
     {
