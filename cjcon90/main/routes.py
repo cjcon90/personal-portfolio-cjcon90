@@ -1,16 +1,25 @@
 from flask import render_template, Blueprint, request, flash, current_app
 from cjcon90.main.utils import send_email
-from flask_recaptcha import ReCaptcha
+import requests
 
 
-SKILLS = ["JavaScript", "Python", "Flask", "Django", "Sass", "Tailwind", "Docker", "Linux"]
+SKILLS = [
+    "JavaScript",
+    "Python",
+    "Flask",
+    "Django",
+    "Sass",
+    "Tailwind",
+    "Docker",
+    "Linux",
+]
 PROJECTS = [
     {
         "title": "The Rhythm Box",
         "description": "E-commerce site feat. user auth, order history, reviews & product filtering/ sorting. Built with Django, SQL, Stripe payments and Sass",
         "repo": "https://github.com/cjcon90/the_rhythm_box",
         "live": "https://therhythmbox.cjcon90.dev",
-        "image": "images/projects/the_rhythm_box-sm.webp"
+        "image": "images/projects/the_rhythm_box-sm.webp",
     },
     {
         "title": "Hot Dogz",
@@ -36,27 +45,48 @@ PROJECTS = [
 ]
 
 
+main = Blueprint("main", __name__)
 
-main = Blueprint('main', __name__)
-recaptcha = ReCaptcha(current_app)
 
-@main.route('/', methods=['GET', 'POST'])
+@main.route("/", methods=["GET", "POST"])
 def index():
     """
-	Route for main portfolio landing page
+    Route for main portfolio landing page
     """
-    if request.method == 'POST':
-        if recaptcha.verify():
-            send_email(subject='[CJCON90.DEV] Contact Form Submission',
-                       sender=current_app.config['ADMINS'][0],
-                       recipients=current_app.config['ADMINS'],
-                       text_body=render_template('email/contact_message.txt',
-                                                 name=request.form['name'],
-                                                 email=request.form['email'],
-                                                 msg=request.form['message']),
-                       html_body=render_template('email/contact_message.html',
-                                                 name=request.form['name'],
-                                                 email=request.form['email'],
-                                                 msg=request.form['message']))
+    if request.method == "POST":
+
+        recaptcha_passed = False
+        recaptcha_response = request.form["g-recaptcha-response"]
+        try:
+            recaptcha_secret = current_app.config["RECAPTCHA_SECRET_KEY"]
+            response = requests.post(
+                f"https://www.google.com/recaptcha/api/siteverify?secret={recaptcha_secret}&response={recaptcha_response}"
+            ).json()
+            recaptcha_passed = response.get("success")
+        except Exception as e:
+            print(f"failed to get reCaptcha: {e}")
+        if recaptcha_passed:
+            send_email(
+                subject="[CJCON90.DEV] Contact Form Submission",
+                sender=current_app.config["ADMINS"][0],
+                recipients=current_app.config["ADMINS"],
+                text_body=render_template(
+                    "email/contact_message.txt",
+                    name=request.form["name"],
+                    email=request.form["email"],
+                    msg=request.form["message"],
+                ),
+                html_body=render_template(
+                    "email/contact_message.html",
+                    name=request.form["name"],
+                    email=request.form["email"],
+                    msg=request.form["message"],
+                ),
+            )
         flash("Thanks for getting in touch!  👍")
-    return render_template('main/index.html', skills=SKILLS, projects=PROJECTS)
+    return render_template(
+        "main/index.html",
+        skills=SKILLS,
+        projects=PROJECTS,
+        recaptcha_site_key=current_app.config["RECAPTCHA_SITE_KEY"],
+    )

@@ -15,6 +15,16 @@
   </style>
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
+  ### reCAPTCHA v3 scripts
+  <script src="https://www.google.com/recaptcha/api.js?render={{recaptcha_site_key}}"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('{{recaptcha_site_key}}', {action: 'validate_captcha'}).then(function (token) {
+        console.info("got token: " + token);
+        document.getElementById('g-recaptcha-response').value = token;
+      });
+    });
+  </script>
   <title>CJCON90 | Web Developer</title>
 </head>
 
@@ -121,7 +131,6 @@
       <div class="contact__form">
         <h3 class="contact__social--heading heading-3">&darr; send me a message</h3>
         <form class="form" id="contact_form" name="contact" action="{{url_for('main.index')}}" method="POST">
-          {{ recaptcha }}
           <div class="form__section">
             <input type="text" id="name" name="name" placeholder="Name" required class="form__section--input" />
             <label for="name" class="form__section--label">Name</label>
@@ -139,6 +148,8 @@
             <p class="form__section--error" id="message-error">Please enter a message!</p>
           </div>
           <div class="form__section">
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <input type="hidden" name="action" value="validate_captcha">
             <button type="submit" id="submit">Submit</button>
           </div>
         </form>
