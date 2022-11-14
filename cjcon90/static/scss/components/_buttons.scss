@@ -50,3 +50,8 @@
     margin-top: 2.5rem;
   }
 }
+
+.grecaptcha-badge {
+  opacity: .70;
+  filter: invert(1) hue-rotate(125deg) brightness(1.50);
+}
