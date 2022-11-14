@@ -54,20 +54,20 @@ def index():
     Route for main portfolio landing page
     """
     if request.method == "POST":
-
-        recaptcha_passed = False
         recaptcha_response = request.form["g-recaptcha-response"]
+        recaptcha_secret = current_app.config["RECAPTCHA_SECRET_KEY"]
+        success, score = False, 0.0
         try:
-            recaptcha_secret = current_app.config["RECAPTCHA_SECRET_KEY"]
             response = requests.post(
                 f"https://www.google.com/recaptcha/api/siteverify?secret={recaptcha_secret}&response={recaptcha_response}"
             ).json()
-            recaptcha_passed = response.get("success")
+            success = response.get("success")
+            score = response.get("score")
         except Exception as e:
             print(f"failed to get reCaptcha: {e}")
-        if recaptcha_passed:
+        if success and score > 0.5:
             send_email(
-                subject="[CJCON90.DEV] Contact Form Submission",
+                subject=f"[CJCON90.DEV] Contact Form Submission ({score})",
                 sender=current_app.config["ADMINS"][0],
                 recipients=current_app.config["ADMINS"],
                 text_body=render_template(
