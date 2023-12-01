@@ -4,14 +4,14 @@ import requests
 
 
 SKILLS = [
-    "JavaScript",
+    "Linux",
     "Python",
+    "JavaScript",
     "Flask",
     "Django",
     "Sass",
     "Tailwind",
     "Docker",
-    "Linux",
 ]
 PROJECTS = [
     {
