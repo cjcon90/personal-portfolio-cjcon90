@@ -11,7 +11,7 @@ class Config(object):
     RECAPTCHA_SITE_KEY = os.environ.get("RECAPTCHA_SITE_KEY")
 
     # Email configuration
-    MAIL_SERVER = "mail.privateemail.com"
+    MAIL_SERVER = "smtp.porkbun.com"
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
