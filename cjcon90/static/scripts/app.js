@@ -55,7 +55,3 @@ submit.addEventListener("click", (e) => {
   }
 });
 
-function onSubmit(token) {
-  document.getElementById("demo-form").submit();
-}
-

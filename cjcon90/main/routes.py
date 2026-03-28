@@ -33,14 +33,14 @@ PROJECTS = [
         "description": "A JavaScript Quiz App build using the REST Countries API, with region and difficulty selectors.",
         "repo": "https://github.com/cjcon90/country-quiz",
         "live": "https://country-quiz.cjcon90.dev",
-        "image": "images/projects/country-quiz-sm.png",
+        "image": "images/projects/country-quiz-sm.webp",
     },
     {
         "title": "SafeTree",
         "description": "Fully responsive, static landing page for a fictional Adventure Therapy organisation, showcasing clean and aesthetically pleasing UX & UI",
         "repo": "https://github.com/cjcon90/safetree",
         "live": "https://safetree.cjcon90.dev",
-        "image": "images/projects/safetree-sm.png",
+        "image": "images/projects/safetree-sm.webp",
     },
 ]
 
