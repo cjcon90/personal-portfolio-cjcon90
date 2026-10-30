@@ -3,7 +3,8 @@
      (no-JS users get all content visible immediately).
    - Smooth-scrolls in-page nav links.
    - Docks the nav bars after the hero and runs the mobile bar menu.
-   - Panel spotlight, timeline fill and date scramble.
+   - Panel spotlight, timeline fill, date scramble and typed commands.
+   - Testimonial role tabs with the quote writing itself in.
    - Reveals [data-reveal] elements as they enter the viewport (vanilla
      replacement for ScrollReveal — no external dependency). */
 (() => {
@@ -93,6 +94,99 @@
   fillTimeline();
   addEventListener("scroll", fillTimeline, { passive: true });
 
+  // Testimonials: role tabs; the chosen quote writes itself in word by word
+  const quotes = document.querySelector(".quotes");
+  const figs = [...quotes.querySelectorAll(".quote")];
+  const texts = figs.map((f) => f.querySelector(".quote__text").textContent.trim().replace(/\s+/g, " "));
+  const tabs = document.createElement("div");
+  tabs.className = "quotes__tabs";
+  tabs.setAttribute("role", "tablist");
+  tabs.setAttribute("aria-label", "Testimonials");
+  tabs.innerHTML = '<span class="quotes__bar" aria-hidden="true"></span>';
+  const bar = tabs.firstChild;
+  quotes.prepend(tabs);
+  quotes.insertAdjacentHTML("beforeend", '<p class="quotes__hint" aria-hidden="true">← → to switch</p>');
+  let current = 0;
+
+  const buttons = figs.map((f, i) => {
+    const b = document.createElement("button");
+    b.className = "quotes__tab";
+    b.setAttribute("role", "tab");
+    b.textContent = f.dataset.tab;
+    b.addEventListener("click", () => showQuote(i));
+    tabs.append(b);
+    return b;
+  });
+
+  const moveBar = () => {
+    const b = buttons[current];
+    bar.style.width = `${b.offsetWidth}px`;
+    bar.style.transform = `translate(${b.offsetLeft}px, ${b.offsetTop + b.offsetHeight - 2}px)`;
+  };
+
+  const select = () => {
+    buttons.forEach((b, i) => {
+      b.setAttribute("aria-selected", i === current);
+      b.tabIndex = i === current ? 0 : -1;
+    });
+    figs.forEach((f, i) => f.classList.toggle("is-current", i === current));
+    moveBar();
+  };
+
+  const writeQuote = () => {
+    const q = figs[current].querySelector(".quote__text");
+    const words = texts[current].split(" ");
+    q.innerHTML =
+      words.map((w, i) => `<span class="quote__word" style="--i: ${i}">${w}</span>`).join(" ") +
+      '<span class="quote__caret" aria-hidden="true"></span>';
+    q.style.setProperty("--n", words.length);
+    q.classList.remove("is-done", "is-writing");
+    void q.offsetWidth;
+    q.classList.add("is-writing");
+  };
+
+  const showQuote = (i) => {
+    i = (i + figs.length) % figs.length;
+    if (i === current) return;
+    const out = figs[current];
+    out.classList.add("is-out");
+    current = i;
+    setTimeout(() => {
+      out.classList.remove("is-out");
+      select();
+      writeQuote();
+    }, 180);
+  };
+
+  tabs.addEventListener("keydown", (e) => {
+    const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (!step) return;
+    showQuote(current + step);
+    buttons[current].focus();
+  });
+
+  // Tap skips the writing; a horizontal swipe moves to the next/previous role
+  let swipeX = null;
+  quotes.addEventListener("pointerdown", (e) => {
+    swipeX = e.target.closest(".quotes__tabs") ? null : e.clientX;
+  });
+  quotes.addEventListener("pointerup", (e) => {
+    if (swipeX === null) return;
+    const dx = e.clientX - swipeX;
+    swipeX = null;
+    if (Math.abs(dx) > 50) return showQuote(current - Math.sign(dx));
+    figs[current].querySelector(".quote__text").classList.add("is-done");
+  });
+
+  addEventListener("resize", moveBar);
+  select();
+  // First quote writes in once the panel is on screen
+  new IntersectionObserver(([entry], obs) => {
+    if (!entry.isIntersecting) return;
+    writeQuote();
+    obs.disconnect();
+  }, { threshold: 0.4 }).observe(quotes);
+
   // Scroll reveal
   const els = document.querySelectorAll("[data-reveal]");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -117,6 +211,17 @@
     }, 40);
   };
 
+  // Commands type out, leaving a blinking block caret
+  const typeOut = (el) => {
+    const text = el.dataset.type;
+    let n = 0;
+    el.textContent = "";
+    const id = setInterval(() => {
+      el.innerHTML = `${text.slice(0, ++n)}<span class="era__caret"></span>`;
+      if (n === text.length) clearInterval(id);
+    }, 110);
+  };
+
   const io = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
@@ -125,7 +230,8 @@
           const panels = [...el.parentElement.children].filter((c) => c.classList.contains("panel"));
           el.style.transitionDelay = `${(panels.indexOf(el) % 3) * 90}ms`;
           el.classList.add("is-visible");
-          el.querySelectorAll(".era__period").forEach(scramble);
+          el.querySelectorAll(".era__period:not([data-type])").forEach(scramble);
+          el.querySelectorAll("[data-type]").forEach(typeOut);
           obs.unobserve(el);
         }
       });
