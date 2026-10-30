@@ -1,0 +1,734 @@
+// ===========================================================================
+// _v2.scss — 2026 redesign.
+// Reuses the original styling system (colours, fonts, header, nav bars,
+// animations) and lays the content out as a bordered panel grid. Imported
+// LAST so it can override the original partials without editing them.
+// ===========================================================================
+
+// ---- hero: original intro, retimed so the name lands by ~2s ----------------
+$ease-drop: cubic-bezier(0.2, 1.4, 0.4, 1);
+
+.header {
+  animation-delay: 0s;
+  animation-duration: 1s;
+
+  &__video {
+    opacity: 0.6;
+  }
+
+  &__logo svg {
+    animation-delay: 0.19s;
+    animation-duration: 1.1s;
+  }
+
+  &__text {
+    &--name,
+    &--about {
+      animation-duration: 1.1s;
+      animation-timing-function: $ease-drop;
+    }
+
+    &--name { animation-delay: 0.94s; }
+    &--about:nth-of-type(1) { animation-delay: 1.19s; }
+    &--about:nth-of-type(2) { animation-delay: 1.44s; }
+  }
+}
+
+// ---- nav: the original three sliding bars ----------------------------------
+#nav {
+  @include respond(land) {
+    &__about   { padding-right: 30vw;   animation-delay: 0.75s; }
+    &__skills  { padding-right: 12.5vw; animation-delay: 1.03s; }
+    &__contact { padding-right: 20vw;   animation-delay: 1.31s; }
+  }
+}
+
+// chunkier bars, in a tighter band than the original
+.nav {
+  @include respond(land) {
+    top: 22vh;
+
+    &__list {
+      height: 56vh;
+
+      & > * {
+        animation-duration: 1.7s;
+      }
+    }
+
+    &__item {
+      padding: 0.4rem 0;
+      font-size: clamp(2.8rem, 4vw, 5.6rem);
+      line-height: 1.65;
+    }
+  }
+}
+
+// mobile: the same bars, stacked low in the hero (replaces the teal top bar)
+.nav {
+  @include respond(tab-port) {
+    position: absolute;
+    top: calc(100vh - 22rem);
+    left: auto;
+    right: 0;
+    width: auto;
+    height: auto;
+    background: none;
+    animation: none;
+
+    &__list {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.8rem;
+
+      & > * {
+        animation: navEnter 1.7s ease-out backwards;
+      }
+    }
+
+    &__item {
+      font-size: 2.8rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
+    }
+  }
+}
+
+#nav {
+  @include respond(tab-port) {
+    &__about   { padding-right: 38vw; animation-delay: 0.75s; }
+    &__skills  { padding-right: 14vw; animation-delay: 1.03s; }
+    &__contact { padding-right: 26vw; animation-delay: 1.31s; }
+  }
+}
+
+// ---- docked bars (desktop) + bar menu (mobile), JS only --------------------
+$bar-gradient: linear-gradient(to right, $color-primary, $color-primary-dark);
+$ease-out-snap: cubic-bezier(0.2, 0.9, 0.3, 1);
+
+body {
+  overflow-x: clip;
+}
+
+.dock,
+.menu-tab,
+.menu {
+  display: none;
+}
+
+.dock {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 998;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  transform: translate(100%, -50%);
+  transition: transform 0.5s $ease-out-snap;
+
+  &:focus-within {
+    transform: translate(0, -50%);
+  }
+
+  &__link {
+    padding: 0.6rem 1.6rem 0.6rem 1.2rem;
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-grey-dark-3;
+    background-image: $bar-gradient;
+    opacity: 0.55;
+    transition: padding 0.35s cubic-bezier(0.2, 1.3, 0.4, 1), opacity 0.3s;
+
+    &:hover,
+    &:focus-visible {
+      padding-right: 5rem;
+      opacity: 1;
+    }
+
+    &--active,
+    &--active:hover {
+      padding-right: 7rem;
+      opacity: 1;
+    }
+  }
+}
+
+.menu-tab {
+  position: fixed;
+  right: 0;
+  bottom: 24px;
+  z-index: 1001;
+  width: 56px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  font: 800 22px $font-heading;
+  color: $color-grey-dark-3;
+  background-image: $bar-gradient;
+  cursor: pointer;
+  transform: translateX(100%);
+  transition: transform 0.4s $ease-out-snap;
+
+  &:focus-visible {
+    transform: none;
+  }
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  background-color: rgba(12, 12, 12, 0.82);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+
+  &__link {
+    padding: 0.35em 1em;
+    font: 500 26px $font-heading;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-grey-dark-3;
+    background-image: $bar-gradient;
+    transform: translateX(110%);
+    transition: transform 0.45s $ease-out-snap;
+
+    &--active {
+      font-style: italic;
+      color: $color-grey-light-1;
+    }
+
+    $offsets: 46vw, 20vw, 36vw, 6vw, 14vw, 30vw;
+    @for $i from 1 through length($offsets) {
+      &:nth-child(#{$i}) {
+        padding-right: nth($offsets, $i);
+        transition-delay: ($i - 1) * 55ms;
+      }
+    }
+  }
+}
+
+body.js {
+  .dock {
+    @include respond(land) {
+      display: flex;
+    }
+  }
+
+  .menu-tab,
+  .menu {
+    @include respond(tab-port) {
+      display: flex;
+    }
+  }
+}
+
+body.nav-docked {
+  .dock { transform: translate(0, -50%); }
+  .menu-tab { transform: none; }
+}
+
+body.menu-open {
+  .menu-tab { transform: none; }
+
+  .menu {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s;
+  }
+
+  .menu__link { transform: none; }
+}
+
+// ---- page + panel grid -----------------------------------------------------
+$panel-bg: #232323;
+$panel-line: #3a3a3a;
+
+body {
+  background-color: $color-grey-dark-3;
+}
+
+main {
+  padding: 8rem 0 6rem;
+  background-color: $color-grey-dark-3;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: min(100rem, 92vw);
+  margin: 0 auto 5rem;
+  scroll-margin-top: 2rem;
+
+  &__heading {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: $color-primary;
+  }
+
+  &__lead {
+    margin-top: 0.6rem;
+    font-family: $font-text;
+    font-size: 1.5rem;
+    color: $color-grey-dark-2;
+  }
+}
+
+.panel {
+  position: relative;
+  margin: -1px 0 0 -1px;
+  padding: 2.8rem;
+  background-color: $panel-bg;
+  border: 1px solid $panel-line;
+  color: $color-grey-light-2;
+  font-family: $font-text;
+
+  &--w2 { grid-column: span 2; }
+  &--w3 { grid-column: span 3; }
+  &--w4 { grid-column: span 4; }
+  &--w6 { grid-column: span 6; }
+  &--tall { grid-row: span 2; }
+
+  @include respond(tab-port) {
+    grid-column: span 6;
+    grid-row: auto;
+    padding: 2.2rem;
+  }
+}
+
+// ---- about -----------------------------------------------------------------
+.about {
+  &__hi {
+    font-family: $font-heading;
+    font-size: 3rem;
+    color: $color-grey-light-1;
+  }
+
+  &__sounds {
+    margin: 0.4rem 0 1.8rem;
+    font-family: $font-mono;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $color-primary;
+  }
+
+  &__bio {
+    display: grid;
+    gap: 1.4rem;
+    max-width: 75ch;
+  }
+
+  &__para {
+    font-size: 1.8rem;
+    line-height: 1.65;
+  }
+}
+
+// ---- timeline eras ---------------------------------------------------------
+.era {
+  &__period {
+    font-family: $font-mono;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: $color-primary;
+    &::before { content: "[ "; }
+    &::after  { content: " ]"; }
+  }
+
+  &__title {
+    margin-top: 0.4rem;
+    font-family: $font-text;
+    font-weight: 600;
+    font-size: 2rem;
+    color: $color-grey-light-1;
+  }
+
+  &__role {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: $color-grey-dark-2;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    max-width: 75ch;
+
+    &--after { margin-top: 1.2rem; }
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      &:hover { color: $color-primary-light; }
+    }
+  }
+
+  &__points {
+    display: grid;
+    gap: 0.8rem;
+    list-style: none;
+    max-width: 85ch;
+  }
+
+  &__point {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    &::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: $color-primary;
+    }
+  }
+}
+
+// ---- origin: Ireland outline, home marked ----------------------------------
+.origin {
+  display: grid;
+  place-items: center;
+
+  // undo the global logo svg rule
+  &__map {
+    width: 100%;
+    max-width: 18rem;
+    padding: 0;
+    background: none;
+    fill: none;
+    animation: none;
+    overflow: visible;
+  }
+
+  &__coast {
+    stroke: $color-primary;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  &__home {
+    fill: $color-primary;
+    transform-box: fill-box;
+    transform-origin: center;
+    filter: drop-shadow(0 0 6px $color-primary);
+  }
+}
+
+// ---- skills ----------------------------------------------------------------
+.skill-group {
+  &__label {
+    margin-bottom: 1rem;
+    font-family: $font-text;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-grey-dark-2;
+  }
+
+  &__list {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+
+    &--cols {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      @include respond(phone) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__item {
+    font-size: 1.6rem;
+    color: $color-grey-light-1;
+  }
+
+  &__note {
+    color: $color-grey-dark-2;
+  }
+}
+
+// ---- quotes ----------------------------------------------------------------
+.quote {
+  &__text {
+    font-style: italic;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: $color-grey-light-1;
+    &::before { content: "“"; }
+    &::after  { content: "”"; }
+  }
+
+  &__by {
+    margin-top: 1.2rem;
+    font-size: 1.2rem;
+    color: $color-grey-dark-2;
+  }
+}
+
+// ---- rest of me ------------------------------------------------------------
+.rest__para {
+  font-size: 1.6rem;
+  line-height: 1.65;
+  em { color: $color-primary-light; }
+}
+
+// ---- contact ---------------------------------------------------------------
+.contact {
+  &__lead {
+    margin-top: 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  &__social {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+
+    &--heading {
+      margin-bottom: 1rem;
+      padding: 0;
+      border: 0;
+      font-family: $font-text;
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__link {
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+    padding: 0.6rem 0;
+
+    .social-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      padding: 0;
+      fill: $color-primary;
+      background: none;
+      animation: none;
+    }
+
+    &--text {
+      font-family: $font-mono;
+      font-weight: 400;
+      font-size: 1.5rem;
+      letter-spacing: 0;
+    }
+  }
+}
+
+
+// ---- scroll reveal (progressive enhancement; no-JS shows everything) -------
+body.js {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  // teal top/left edges trace in as the panel arrives
+  .panel {
+    border-color: transparent;
+    background-image:
+      linear-gradient($color-primary, $color-primary),
+      linear-gradient($color-primary, $color-primary),
+      linear-gradient($panel-line, $panel-line),
+      linear-gradient($panel-line, $panel-line);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-position: 0 0, 0 0, 100% 100%, 100% 100%;
+    background-size: 0 1px, 1px 0, 0 1px, 1px 0;
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease,
+      border-color 0.3s,
+      background-size 0.9s cubic-bezier(0.6, 0, 0.2, 1) 0.15s;
+
+    &.is-visible {
+      background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+    }
+  }
+
+  .timeline__fill {
+    display: block;
+  }
+
+  // coast draws itself in, then home pops onto Killarney
+  .origin__coast {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 2.2s cubic-bezier(0.6, 0, 0.3, 1) 0.3s;
+  }
+
+  .origin__home {
+    transform: scale(0);
+    transition: transform 0.6s cubic-bezier(0.2, 1.8, 0.4, 1) 2.4s;
+  }
+
+  .origin.is-visible {
+    .origin__coast { stroke-dashoffset: 0; }
+    .origin__home { transform: none; }
+  }
+}
+
+// ---- cursor spotlight ------------------------------------------------------
+@media (hover: hover) {
+  .panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(
+      420px circle at var(--x, 50%) var(--y, 50%),
+      rgba($color-primary, 0.1),
+      transparent 60%
+    );
+  }
+
+  body .panel:hover {
+    border-color: rgba($color-primary, 0.45);
+    &::before { opacity: 1; }
+  }
+}
+
+// ---- timeline fill ---------------------------------------------------------
+.timeline__fill {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  z-index: 2;
+  width: 2px;
+  background-color: $panel-line;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--progress, 0) * 100%);
+    background-color: $color-primary;
+    box-shadow: 0 0 12px $color-primary;
+  }
+}
+
+// ---- skills ticker ---------------------------------------------------------
+.ticker {
+  padding: 1.2rem 0;
+  overflow: hidden;
+  background-color: #1a1a1a;
+
+  &__track {
+    display: flex;
+    width: max-content;
+    animation: ticker 40s linear infinite;
+  }
+
+  &:hover &__track {
+    animation-play-state: paused;
+  }
+
+  &__set {
+    display: flex;
+    white-space: nowrap;
+    font-family: $font-mono;
+    font-size: 1.4rem;
+    color: $color-grey-dark-2;
+
+    span {
+      margin-right: 4rem;
+      &::before {
+        content: "▸ ";
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.js [data-reveal],
+  body.js .panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .header,
+  .header__logo svg,
+  .header__text > *,
+  .nav__list > *,
+  .waving-hand {
+    animation: none;
+  }
+
+  .header__text > * {
+    opacity: 1;
+  }
+
+  .header__logo svg {
+    fill: $color-grey-dark-3;
+    background-position: 100%;
+  }
+
+  .dock,
+  .menu,
+  .menu__link,
+  .menu-tab,
+  .origin__coast,
+  .origin__home {
+    transition: none;
+  }
+
+  .ticker {
+    padding: 1.2rem 2.8rem;
+
+    &__track {
+      width: auto;
+      animation: none;
+    }
+
+    &__set {
+      flex-wrap: wrap;
+      row-gap: 0.6rem;
+      white-space: normal;
+      & + & { display: none; }
+    }
+  }
+}

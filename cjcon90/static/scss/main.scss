@@ -2,6 +2,7 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
+@import "base/fonts";
 @import "base/animations";
 @import "base/base";
 @import "base/typography";
@@ -21,3 +22,5 @@
 @import "layout/projects";
 @import "layout/skills";
 @import "layout/spinner";
+
+@import "layout/v2";
