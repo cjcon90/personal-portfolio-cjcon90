@@ -1878,8 +1878,13 @@ body.js .quotes .quote.is-out {
   color: #999;
 }
 .quote__by::before {
-  content: "— ";
-  color: rgb(28, 218, 186);
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1px;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+  background-color: rgb(28, 218, 186);
 }
 @media only screen and (max-width: 63.99em) {
   .quote__by {
@@ -2422,8 +2427,10 @@ body.js .origin.is-visible .origin__home {
   width: max-content;
   animation: ticker 40s linear infinite;
 }
-.ticker:hover .ticker__track {
-  animation-play-state: paused;
+@media only screen and (max-width: 63.99em) {
+  .ticker__track {
+    animation-duration: 32s;
+  }
 }
 .ticker__set {
   display: flex;

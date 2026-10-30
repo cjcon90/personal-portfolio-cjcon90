@@ -853,9 +853,15 @@ body.js .quotes {
     font-size: 1.3rem;
     color: $color-grey-dark-2;
 
+    // short teal rule before the name
     &::before {
-      content: "— ";
-      color: $color-primary;
+      content: "";
+      display: inline-block;
+      width: 1.2rem;
+      height: 1px;
+      margin-right: 0.8rem;
+      vertical-align: middle;
+      background-color: $color-primary;
     }
 
     @include respond(tab-port) { margin-left: 1.8rem; }
@@ -1281,10 +1287,8 @@ body.js {
     display: flex;
     width: max-content;
     animation: ticker 40s linear infinite;
-  }
 
-  &:hover &__track {
-    animation-play-state: paused;
+    @include respond(tab-port) { animation-duration: 32s; }
   }
 
   &__set {
