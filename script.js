@@ -63,7 +63,6 @@
   const setMenu = (open) => {
     body.classList.toggle("menu-open", open);
     tab.setAttribute("aria-expanded", open);
-    tab.textContent = open ? "✕" : "≡";
   };
   tab.addEventListener("click", () => setMenu(!body.classList.contains("menu-open")));
   document.querySelectorAll(".menu__link").forEach((a) =>
@@ -72,6 +71,19 @@
   addEventListener("keydown", (e) => {
     if (e.key === "Escape") setMenu(false);
   });
+
+  // Scroll cue: only nudges readers who haven't scrolled after a few seconds
+  const cue = document.querySelector(".cue");
+  const cueTimer = setTimeout(() => scrollY < 40 && cue.classList.add("is-shown"), 4000);
+  addEventListener(
+    "scroll",
+    () => {
+      if (scrollY < 40) return;
+      clearTimeout(cueTimer);
+      cue.classList.add("is-gone");
+    },
+    { passive: true }
+  );
 
   // Cursor spotlight on panels
   if (matchMedia("(hover: hover)").matches) {

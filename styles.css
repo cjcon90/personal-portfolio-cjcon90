@@ -1063,7 +1063,68 @@ svg {
 .header__text--about:nth-of-type(2) {
   animation-delay: 1.44s;
 }
+@media only screen and (max-width: 63.99em) {
+  .header {
+    height: 100svh;
+  }
+}
 
+.cue {
+  display: none;
+}
+@media only screen and (max-width: 63.99em) {
+  .cue {
+    position: absolute;
+    left: 50%;
+    bottom: 3.2rem;
+    z-index: 5;
+    display: grid;
+    justify-items: center;
+    transform: translateX(-50%);
+  }
+}
+.cue span {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: -0.5rem;
+  border-right: 2px solid rgb(28, 218, 186);
+  border-bottom: 2px solid rgb(28, 218, 186);
+  transform: rotate(45deg);
+  opacity: 0.15;
+  animation: cue-chev 1.5s ease-in-out infinite;
+}
+.cue span:nth-of-type(2) {
+  animation-delay: 0.18s;
+}
+.cue span:nth-of-type(3) {
+  animation-delay: 0.36s;
+}
+
+body.js .cue {
+  opacity: 0;
+  translate: 0 1rem;
+  pointer-events: none;
+  transition: opacity 0.6s, translate 0.6s;
+}
+body.js .cue.is-shown {
+  opacity: 1;
+  translate: none;
+  pointer-events: auto;
+}
+body.js .cue.is-gone {
+  opacity: 0;
+  translate: 0 -1rem;
+  pointer-events: none;
+}
+
+@keyframes cue-chev {
+  30% {
+    opacity: 1;
+  }
+  60%, 100% {
+    opacity: 0.15;
+  }
+}
 @media only screen and (min-width: 64rem) {
   #nav__about {
     padding-right: 30vw;
@@ -1098,43 +1159,7 @@ svg {
 
 @media only screen and (max-width: 63.99em) {
   .nav {
-    position: absolute;
-    top: calc(100vh - 22rem);
-    left: auto;
-    right: 0;
-    width: auto;
-    height: auto;
-    background: none;
-    animation: none;
-  }
-  .nav__list {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1.8rem;
-  }
-  .nav__list > * {
-    animation: navEnter 1.7s ease-out backwards;
-  }
-  .nav__item {
-    font-size: 2.8rem;
-    font-weight: 500;
-    padding: 0.4rem 1rem;
-    background-image: linear-gradient(to right, rgb(28, 218, 186), rgb(26, 170, 146));
-  }
-}
-
-@media only screen and (max-width: 63.99em) {
-  #nav__about {
-    padding-right: 38vw;
-    animation-delay: 0.75s;
-  }
-  #nav__skills {
-    padding-right: 14vw;
-    animation-delay: 1.03s;
-  }
-  #nav__contact {
-    padding-right: 26vw;
-    animation-delay: 1.31s;
+    display: none;
   }
 }
 
@@ -1191,20 +1216,80 @@ body {
   z-index: 1001;
   width: 56px;
   height: 44px;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
   border: 0;
-  font: 800 22px "Montserrat", sans-serif;
-  color: rgb(31, 31, 31);
-  background-image: linear-gradient(to right, rgb(28, 218, 186), rgb(26, 170, 146));
+  background: none;
   cursor: pointer;
-  transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
 }
-.menu-tab:focus-visible {
-  transform: none;
+.menu-tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgb(28, 218, 186), rgb(26, 170, 146));
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: menu-fill 0.4s cubic-bezier(0.6, 0, 0.2, 1) 3.1s forwards;
+}
+.menu-tab__edge {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+  fill: none;
+  animation: none;
+  overflow: visible;
+}
+.menu-tab__edge rect {
+  stroke: rgb(28, 218, 186);
+  stroke-width: 1.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: menu-draw 0.55s cubic-bezier(0.6, 0, 0.3, 1) 2.55s forwards;
+}
+.menu-tab i {
+  position: absolute;
+  left: 18px;
+  width: 20px;
+  height: 2.5px;
+  background-color: rgb(28, 218, 186);
+  animation: menu-line 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards, menu-ink 0.2s ease 3.3s forwards;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.2s;
+}
+.menu-tab i:nth-of-type(1) {
+  top: 14px;
+  animation-delay: 2s, 3.3s;
+}
+.menu-tab i:nth-of-type(2) {
+  top: 21px;
+  animation-delay: 2.12s, 3.3s;
+}
+.menu-tab i:nth-of-type(3) {
+  top: 28px;
+  animation-delay: 2.24s, 3.3s;
 }
 
+@keyframes menu-line {
+  from {
+    transform: translateX(80px);
+  }
+}
+@keyframes menu-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes menu-fill {
+  to {
+    transform: none;
+  }
+}
+@keyframes menu-ink {
+  to {
+    background-color: rgb(31, 31, 31);
+  }
+}
 .menu {
   position: fixed;
   inset: 0;
@@ -1274,12 +1359,15 @@ body {
 body.nav-docked .dock {
   transform: translate(0, -50%);
 }
-body.nav-docked .menu-tab {
-  transform: none;
-}
 
-body.menu-open .menu-tab {
-  transform: none;
+body.menu-open .menu-tab i:nth-of-type(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+body.menu-open .menu-tab i:nth-of-type(2) {
+  opacity: 0;
+}
+body.menu-open .menu-tab i:nth-of-type(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 body.menu-open .menu {
   opacity: 1;
@@ -2415,6 +2503,26 @@ body.js .origin.is-visible .origin__home {
   }
   .quotes__bar,
   body.js .quotes .quote {
+    transition: none;
+  }
+  .menu-tab::before, .menu-tab__edge rect,
+  .menu-tab i {
+    animation: none;
+  }
+  .menu-tab::before {
+    transform: none;
+  }
+  .menu-tab__edge rect {
+    stroke-dashoffset: 0;
+  }
+  .menu-tab i {
+    background-color: rgb(31, 31, 31);
+  }
+  .cue span {
+    animation: none;
+    opacity: 1;
+  }
+  body.js .cue {
     transition: none;
   }
   body.js .skill-group__item::before {
